@@ -1,0 +1,120 @@
+header {
+    background-color: black;
+    padding: 20px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+
+        nav {
+            width: 50rem;
+
+            ul {
+                display: flex;
+                width: 80%;
+                justify-content: space-around;
+                margin: 0;
+
+                li {
+
+                    a {
+                        color: #fff;
+                        transition: 1s;
+                        font-weight: 500;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 0%;
+                            height: 3px;
+                            background-color: yellow;
+                            top: 25px;
+                            transition: 1s;
+                        }
+
+                        &:hover {
+                            color: yellow;
+
+                            &::before {
+                                width: 100%;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .add-list {
+            width: 250px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            z-index: 5;
+
+            #wishlist {
+                position: relative;
+
+                &:hover {
+                    #wishLength {
+                        background-color: yellow;
+                    }
+                }
+
+                #wishLength {
+                    font-size: 0.7rem;
+                    font-weight: 600;
+                    background-color: #fff;
+                    color: black;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    display: flex;
+                    border-radius: 50%;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: -18px;
+                    right: -20px;
+                    transition: 1s;
+                }
+            }
+
+            i {
+                cursor: pointer;
+                color: #fff;
+                font-size: 1.2rem;
+                transition: 1s;
+
+                &:hover {
+                    color: black;
+                    // color: rgb(246, 190, 0);
+                }
+            }
+        }
+    }
+}
+.headerFix{
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    z-index: 9999;
+    animation:  headerAnime 2s forwards;
+    .add-list{
+        a{
+            i{
+                &:hover{
+                    color: #f6be00;
+                }
+            }
+        }
+    }
+}
+
+@keyframes headerAnime{
+    from{
+        transform: translateY(-200px);
+    }to{
+        transform: translateY(0);
+    }
+}

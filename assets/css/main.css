@@ -1,0 +1,746 @@
+header {
+  background-color: black;
+  padding: 20px;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+header .container nav {
+  width: 50rem;
+}
+header .container nav ul {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  margin: 0;
+}
+header .container nav ul li a {
+  color: #fff;
+  transition: 1s;
+  font-weight: 500;
+  position: relative;
+}
+header .container nav ul li a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  background-color: yellow;
+  top: 25px;
+  transition: 1s;
+}
+header .container nav ul li a:hover {
+  color: yellow;
+}
+header .container nav ul li a:hover::before {
+  width: 100%;
+}
+header .container .add-list {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  z-index: 5;
+}
+header .container .add-list #wishlist {
+  position: relative;
+}
+header .container .add-list #wishlist:hover #wishLength {
+  background-color: yellow;
+}
+header .container .add-list #wishlist #wishLength {
+  font-size: 0.7rem;
+  font-weight: 600;
+  background-color: #fff;
+  color: black;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -18px;
+  right: -20px;
+  transition: 1s;
+}
+header .container .add-list i {
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: 1s;
+}
+header .container .add-list i:hover {
+  color: black;
+}
+
+.headerFix {
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  z-index: 9999;
+  animation: headerAnime 2s forwards;
+}
+.headerFix .add-list a i:hover {
+  color: #f6be00;
+}
+
+@keyframes headerAnime {
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+* {
+  list-style-type: none;
+  text-decoration: none !important;
+}
+
+#hero {
+  background-color: black;
+  color: #fff;
+  height: 45rem;
+  display: flex;
+  align-items: center;
+}
+#hero::before {
+  content: "";
+  height: 49.4rem;
+  width: 26%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background-color: #f6be00;
+}
+#hero .container {
+  background-image: url("../../../assets/Image/01.png");
+  display: flex;
+  z-index: 3;
+  background-repeat: no-repeat;
+  height: 37rem;
+  background-size: cover;
+}
+#hero .container .content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#hero .container .content h1 {
+  font-size: 3.5rem;
+}
+#hero .container .content .date {
+  font-size: 1.2rem;
+}
+#hero .container .content .raiting {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#hero .container .content .raiting .imdbImg {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  font-weight: 700;
+  align-items: center;
+  background-color: rgb(48, 48, 48);
+}
+#hero .container .content .raiting .imdbImg img {
+  width: 3rem;
+  height: 1rem;
+}
+#hero .container .content .raiting .addIcons {
+  display: flex;
+  gap: 20px;
+}
+#hero .container .content .raiting .addIcons i {
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgb(48, 48, 48);
+  transition: 1s;
+}
+#hero .container .content .raiting .addIcons i:hover {
+  background-color: yellow;
+  color: black;
+}
+#hero .container .content .textHero {
+  display: flex;
+  gap: 25px;
+  margin: 0.5rem 0;
+}
+#hero .container .content .duty {
+  font-weight: bold;
+}
+#hero .container .content .buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+#hero .container .content .buttons button {
+  padding: 15px;
+  border-radius: 20px;
+  width: 150px;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+#hero .container .content .buttons button i {
+  margin: 0 0.5rem;
+}
+#hero .container .content .buttons button .addList {
+  color: #fff;
+  background-color: rgb(48, 48, 48);
+  width: 1.3rem;
+  height: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 1s;
+}
+#hero .container .content .buttons .playBtn {
+  justify-content: center;
+  background-color: #f6be00;
+  position: relative;
+  border: 1px solid #f6be00;
+  transition: 1s;
+}
+#hero .container .content .buttons .playBtn:hover {
+  background-color: #fff;
+}
+#hero .container .content .buttons .addBtn {
+  border: 1px solid #fff;
+  transition: 1s;
+}
+#hero .container .content .buttons .addBtn:hover {
+  background-color: #f6be00;
+  border: 1px solid #f6be00;
+}
+#hero .container .play {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+  position: relative;
+}
+#hero .container .play:after {
+  content: "";
+  position: absolute;
+  animation: animePlay 2s infinite;
+  width: 4rem;
+  height: 4rem;
+  background-color: #f6be00;
+  border-radius: 50%;
+}
+#hero .container .play i {
+  font-size: 1.3rem;
+  transition: 1s;
+  width: 4rem;
+  height: 4rem;
+  background-color: #f6be00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s;
+  position: relative;
+  color: rgb(48, 48, 48);
+  z-index: 999;
+}
+#hero .container .play i:hover {
+  color: #fff;
+}
+
+#trending {
+  background-color: rgb(11, 11, 13);
+  padding: 1rem 0;
+}
+#trending .container .head {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+#trending .container .head h2 {
+  color: #f6be00;
+  font-weight: 500;
+  font-size: 35px;
+  position: relative;
+}
+#trending .container .head h2::after {
+  position: absolute;
+  left: 0;
+  bottom: -0.7rem;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #f6be00;
+}
+#trending .container .head p {
+  color: #fff;
+  opacity: 0.7;
+  margin: 0;
+  transition: 1s;
+  cursor: pointer;
+}
+#trending .container .head p:hover {
+  opacity: 1;
+  color: #f6be00;
+}
+
+.topTrend {
+  position: relative;
+  height: 100%;
+  margin: 25px 0;
+  padding: 25px 0;
+}
+.topTrend #categoryTrend {
+  overflow: hidden;
+}
+.topTrend #categoryTrend .swiper-pagination-bullet-active {
+  background-color: #f6be00;
+}
+.topTrend #categoryTrend .swiper-pagination {
+  margin: 1rem 0;
+}
+.topTrend #categoryTrend .swiper-button-next {
+  color: #f6be00;
+}
+.topTrend #categoryTrend .swiper-button-prev {
+  color: #f6be00;
+}
+.topTrend #categoryTrend .swipperSlide {
+  position: relative;
+  width: 30.5%;
+  overflow: hidden;
+}
+.topTrend #categoryTrend .swipperSlide:hover .detailInfo {
+  visibility: visible;
+  opacity: 1;
+}
+.topTrend #categoryTrend .swipperSlide:hover img {
+  scale: 1.2;
+}
+.topTrend #categoryTrend .swipperSlide .swiper-button-prev {
+  color: #f6be00;
+}
+.topTrend #categoryTrend .swipperSlide img {
+  width: 100%;
+  object-fit: cover;
+  height: 350px;
+  transition: 5s;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo {
+  opacity: 0;
+  visibility: hidden;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  transition: 1s;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo .wish {
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 1s;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo .wish:hover {
+  color: #f6be00;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo .content p {
+  cursor: pointer;
+  transition: 1s;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo .content p:hover {
+  color: #f6be00;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo .content .plays {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  transition: 1s;
+}
+.topTrend #categoryTrend .swipperSlide .detailInfo .content .plays:hover {
+  background-color: #f6be00;
+  color: #fff;
+}
+
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+swiper-container {
+  width: 100%;
+  height: 300px;
+  margin: 20px auto;
+}
+
+.append-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.append-buttons button {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #007aff;
+  color: #007aff;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 0 10px;
+  font-size: 13px;
+}
+
+#category {
+  height: 40rem;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+}
+#category .container {
+  height: 30rem;
+}
+#category .container .head {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+#category .container .head h2 {
+  color: #f6be00;
+  font-weight: 500;
+  font-size: 35px;
+  position: relative;
+}
+#category .container .head h2::after {
+  position: absolute;
+  left: 0;
+  bottom: -0.7rem;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #f6be00;
+}
+#category .container #content {
+  display: flex;
+  flex-wrap: wrap;
+}
+#category .container #content .row .col-xl-3 .categoryBox {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+#category .container #content .row .col-xl-3 .categoryBox:hover .action::after {
+  width: 100%;
+}
+#category .container #content .row .col-xl-3 .categoryBox:hover .imgCat {
+  scale: 1.3;
+}
+#category .container #content .row .col-xl-3 .categoryBox:hover .action::before {
+  width: 100%;
+}
+#category .container #content .row .col-xl-3 .categoryBox:hover .action {
+  visibility: visible;
+  opacity: 1;
+}
+#category .container #content .row .col-xl-3 .categoryBox:hover .action p::after {
+  height: 100%;
+}
+#category .container #content .row .col-xl-3 .categoryBox:hover .action p::before {
+  height: 100%;
+}
+#category .container #content .row .col-xl-3 .categoryBox .action {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  width: 89%;
+  height: 89%;
+  margin: 1rem;
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  transition: 1s;
+  z-index: 999;
+}
+#category .container #content .row .col-xl-3 .categoryBox .action::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 4px;
+  background-color: #f6be00;
+  top: 0;
+  left: 0;
+  transition: 1s;
+}
+#category .container #content .row .col-xl-3 .categoryBox .action::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 4px;
+  background-color: #f6be00;
+  bottom: 0;
+  right: 0;
+  transition: 1s;
+}
+#category .container #content .row .col-xl-3 .categoryBox .action img {
+  width: 5rem;
+}
+#category .container #content .row .col-xl-3 .categoryBox .action p {
+  color: #f6be00;
+  font-size: 2rem;
+}
+#category .container #content .row .col-xl-3 .categoryBox .action p::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 0;
+  background-color: #f6be00;
+  bottom: 0;
+  left: 0;
+  transition: 1s;
+}
+#category .container #content .row .col-xl-3 .categoryBox .action p::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 0;
+  background-color: #f6be00;
+  top: 0;
+  right: 0;
+  transition: 1s;
+}
+#category .container #content .row .col-xl-3 .categoryBox .imgCat {
+  width: 100%;
+  transition: 10s;
+}
+#category .container #content .row .col-xl-3 .categoryBox .textCategory {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  font-size: 2.5rem;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+
+#movies {
+  background-color: rgb(11, 11, 13);
+  display: flex;
+  align-items: center;
+  padding: 25px;
+}
+#movies .container .head {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+#movies .container .head h2 {
+  color: #f6be00;
+  font-weight: 500;
+  font-size: 35px;
+  position: relative;
+}
+#movies .container .head h2::after {
+  position: absolute;
+  left: 0;
+  bottom: -0.7rem;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #f6be00;
+}
+#movies .container .head p {
+  color: #fff;
+  opacity: 0.7;
+  margin: 0;
+  transition: 1s;
+  cursor: pointer;
+}
+#movies .container .head p:hover {
+  opacity: 1;
+  color: #f6be00;
+}
+#movies .container #moviesProducts {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 25px 0;
+}
+#movies .container #moviesProducts .moiveProBox {
+  width: 324px;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+#movies .container #moviesProducts .moiveProBox:hover .detailInfo {
+  visibility: visible;
+  opacity: 1;
+}
+#movies .container #moviesProducts .moiveProBox:hover img {
+  scale: 1.2;
+}
+#movies .container #moviesProducts .moiveProBox img {
+  width: 100%;
+  height: 350px;
+  transition: 7s;
+  object-fit: cover;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo {
+  opacity: 0;
+  visibility: hidden;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  transition: 1s;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .wish {
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 1s;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .wish:hover {
+  color: #f6be00;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .content .detailContent {
+  width: 80%;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .content p {
+  cursor: pointer;
+  transition: 1s;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .content p:hover {
+  color: #f6be00;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .content .plays {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  transition: 1s;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .content .plays:hover {
+  background-color: #f6be00;
+  color: #fff;
+}
+#movies .container #loadMore {
+  padding: 10px;
+  color: #000;
+  background-color: #f6be00;
+  margin: 1rem;
+  width: 150px;
+  transition: 1s;
+  font-weight: 600;
+  border-radius: 25px;
+  border: 2px solid #f6be00;
+}
+#movies .container #loadMore i {
+  margin: 0 0.3rem;
+  transition: 0.5s;
+}
+#movies .container #loadMore:hover {
+  background-color: #000;
+  color: #f6be00;
+  border: 2px solid #f6be00;
+}
+#movies .container #loadMore:hover i {
+  rotate: -90deg;
+}
+
+footer {
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  background-color: #000;
+}
+footer p {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f6be00;
+}
+
+@keyframes animePlay {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
