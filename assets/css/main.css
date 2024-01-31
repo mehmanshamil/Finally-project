@@ -11,7 +11,7 @@ header .container nav {
 }
 header .container nav ul {
   display: flex;
-  width: 80%;
+  width: 45%;
   justify-content: space-around;
   margin: 0;
 }
@@ -99,6 +99,220 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+#moviePlayer {
+  padding: 1rem 0;
+  background-color: black;
+  color: #fff;
+}
+#moviePlayer #watch {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#moviePlayer #popup-container {
+  position: absolute;
+  top: 14rem;
+  z-index: 999;
+  display: none;
+  justify-content: center;
+}
+#moviePlayer #popup-container #closed {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f6be00;
+  border: 2px solid #f6be00;
+  color: #000;
+  cursor: pointer;
+  transition: 1s;
+}
+#moviePlayer #popup-container #closed:hover {
+  background-color: #000;
+  color: #f6be00;
+  border: 2px solid #f6be00;
+}
+#moviePlayer .elegal {
+  z-index: 999;
+  background-color: red;
+  width: 20rem;
+}
+#moviePlayer .elegal iframe {
+  position: absolute;
+  top: 0;
+  width: 25rem;
+}
+#moviePlayer .container {
+  position: relative;
+}
+#moviePlayer .container img {
+  width: 100%;
+  object-fit: cover;
+  height: 45rem;
+}
+#moviePlayer .container .content {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+}
+#moviePlayer .container .content .informationMovie {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#moviePlayer .container .content .informationMovie h2 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+#moviePlayer .container .content .informationMovie p {
+  font-size: 1.1rem;
+}
+#moviePlayer .container .content .informationMovie p span {
+  color: #f6be00;
+}
+#moviePlayer .container .content .informationMovie p .added {
+  cursor: pointer;
+}
+#moviePlayer .container .content .informationMovie p .starIMDB {
+  color: #f6be00;
+}
+#moviePlayer .container .content .informationMovie button {
+  width: 200px;
+  padding: 10px;
+  background-color: #f6be00;
+  border-radius: 10px;
+  border: 1px solid #f6be00;
+  color: #000;
+  transition: 1s;
+  font-weight: 500;
+}
+#moviePlayer .container .content .informationMovie button:hover {
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+#moviePlayer .container .content .play {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+  position: relative;
+}
+#moviePlayer .container .content .play:after {
+  content: "";
+  position: absolute;
+  animation: animePlay 2s infinite;
+  width: 4rem;
+  height: 4rem;
+  background-color: #f6be00;
+  border-radius: 50%;
+}
+#moviePlayer .container .content .play i {
+  font-size: 1.3rem;
+  transition: 1s;
+  width: 4rem;
+  height: 4rem;
+  background-color: #f6be00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s;
+  position: relative;
+  color: rgb(48, 48, 48);
+  z-index: 999;
+}
+#moviePlayer .container .content .play i:hover {
+  color: #fff;
+}
+
+#descriptions {
+  background-color: black;
+  color: #fff;
+  padding: 1rem 0;
+}
+#descriptions .container h5 {
+  width: 155px;
+  background-color: #f6be00;
+  padding: 15px;
+  border-radius: 30px;
+  text-align: center;
+  color: #000;
+  margin: 1rem 0;
+}
+#descriptions .container #description h6 {
+  font-size: 1.5rem;
+}
+#descriptions .container #description p {
+  font-size: 1.2rem;
+}
+
+#srcMovieSec {
+  background-color: black;
+  width: 100%;
+}
+#srcMovieSec .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+#srcMovieSec .container #srcMovie {
+  position: relative;
+}
+#srcMovieSec .container #srcMovie input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 3px solid #f6be00;
+  width: 550px;
+}
+#srcMovieSec .container #srcMovie button {
+  width: 120px;
+  background-color: #f6be00;
+  font-weight: 500;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 20px;
+  transition: 1s;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #f6be00;
+}
+#srcMovieSec .container #srcMovie button:hover {
+  background-color: black;
+  color: #f6be00;
+}
+
+body {
+  background-color: black;
+}
+
+.alert {
+  padding: 10px;
+  width: 50%;
+  border: 1px solid red;
+  background-color: red;
+  color: #fff;
+  margin: 0 auto;
+  height: 3.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 600;
 }
 
 * {
@@ -271,6 +485,8 @@ body {
 #trending {
   background-color: rgb(11, 11, 13);
   padding: 1rem 0;
+  position: relative;
+  z-index: 9;
 }
 #trending .container .head {
   display: flex;
@@ -293,14 +509,14 @@ body {
   height: 3px;
   background-color: #f6be00;
 }
-#trending .container .head p {
+#trending .container .head p a {
   color: #fff;
   opacity: 0.7;
   margin: 0;
   transition: 1s;
   cursor: pointer;
 }
-#trending .container .head p:hover {
+#trending .container .head p a:hover {
   opacity: 1;
   color: #f6be00;
 }
@@ -374,11 +590,13 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.topTrend #categoryTrend .swipperSlide .detailInfo .content p {
+.topTrend #categoryTrend .swipperSlide .detailInfo .content p a {
   cursor: pointer;
   transition: 1s;
+  color: #fff;
+  font-weight: 500;
 }
-.topTrend #categoryTrend .swipperSlide .detailInfo .content p:hover {
+.topTrend #categoryTrend .swipperSlide .detailInfo .content p a:hover {
   color: #f6be00;
 }
 .topTrend #categoryTrend .swipperSlide .detailInfo .content .plays {
@@ -604,14 +822,14 @@ swiper-container {
   height: 3px;
   background-color: #f6be00;
 }
-#movies .container .head p {
+#movies .container .head p a {
   color: #fff;
   opacity: 0.7;
   margin: 0;
   transition: 1s;
   cursor: pointer;
 }
-#movies .container .head p:hover {
+#movies .container .head p a:hover {
   opacity: 1;
   color: #f6be00;
 }
@@ -669,11 +887,13 @@ swiper-container {
 #movies .container #moviesProducts .moiveProBox .detailInfo .content .detailContent {
   width: 80%;
 }
-#movies .container #moviesProducts .moiveProBox .detailInfo .content p {
+#movies .container #moviesProducts .moiveProBox .detailInfo .content p a {
   cursor: pointer;
   transition: 1s;
+  color: #fff;
+  font-weight: 500;
 }
-#movies .container #moviesProducts .moiveProBox .detailInfo .content p:hover {
+#movies .container #moviesProducts .moiveProBox .detailInfo .content p a:hover {
   color: #f6be00;
 }
 #movies .container #moviesProducts .moiveProBox .detailInfo .content .plays {

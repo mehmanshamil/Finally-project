@@ -8,3 +8,8 @@ document.addEventListener("scroll",() =>{
         header.classList.remove("headerFix")
     }
 })
+function wishLengthFunc(){
+    let wish = JSON.parse(localStorage.getItem("wish")) || [];
+    wishLength.innerHTML=wish.length
+}
+wishLengthFunc()

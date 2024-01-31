@@ -24,13 +24,11 @@
                 <ul>
                     <li><a href="../../index.html">HOME</a></li>
                     <li><a href="#">MOVIE</a></li>
-                    <li><a href="#">TV SHOWS</a></li>
-                    <li><a href="#">WEB SERIES</a></li>
                     <li id="addList"><a href="#">ADD TO LiST</a></li>
                 </ul>
             </nav>
             <div class="add-list">
-                <a href="#">
+                <a href="../../assets/Page/searchMovie.html">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
                 <a href="#">
@@ -43,8 +41,62 @@
         </div>
     </header>
     <main>
-        <section>
-            <h1 class="text-center">movie Detail</h1>
+        <section id="moviePlayer">
+            <div id="movieDetal" class="container">
+            </div>
+            <div id="watch">
+                <!-- Watching -->
+                <div class="popup-container" id="popup-container">
+                    <i id="closed" onclick="closeVideo()" class="fa-solid closed fa-x"></i>
+                    <iframe width="660" height="415" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <section id="descriptions">
+            <div class="container">
+                <h5>Description</h5>
+                <div id="description">
+                    <h6>So why do we do it?</h6>
+                    <p id="descripText">
+                    </p>
+                    <h6>
+                        Does it need to be done at all?
+                    </h6>
+                    <p>
+                        Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer
+                        hears tales of diamonds and begins dreaming of vast riches. He sells his farm and hikes off over
+                        the horizon, never to be heard from again. Rumors say that years later he died destitute, never
+                        having found the diamonds he spent his life seeking.
+                    </p>
+                    <h6>
+                        Can it be done by someone else?
+                    </h6>
+                    <p>
+                        It turned out to be the Hope Diamond, the largest such stone ever found. That stream bed was
+                        littered with diamonds, and the new owner became fabulously wealthy. No doubt he also lived
+                        happily ever after. But doesn’t something in that story set strangely with you? What about the
+                        guy with the burning desire and the grand vision? He ended up disappointed and broke.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+        <section id="trending">
+            <div class="container my-5">
+                <div class="head">
+                    <h2>Recently Updated</h2>
+                    <p>More Movies</p>
+                </div>
+                <div class="topTrend">
+                    <div id="categoryTrend" class="swiper-container">
+                        <div class="swiper-wrapper">
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
@@ -56,11 +108,11 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./assets/JS/index.js"></script>
-    <script src="./assets/JS/main.js"></script>
+    <script src="../../assets/JS/detailMovie.js"></script>
+    <script src="../../assets/JS/main.js"></script>
 </body>
 
 </html>

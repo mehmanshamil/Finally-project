@@ -1,6 +1,194 @@
-body{
+body {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+#moviePlayer {
+    padding: 1rem 0;
+    background-color: black;
+    color: #fff;
+    #watch{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #popup-container {
+        position: absolute;
+        top: 14rem;
+        z-index: 999;
+        display: none;
+        justify-content: center;
+        #closed {
+            width: 2.5rem;
+            height: 2.5rem;
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #f6be00;
+            border: 2px solid #f6be00;
+            color: #000;
+            cursor: pointer;
+            transition: 1s;
+
+            &:hover {
+                background-color: #000;
+                color: #f6be00;
+                border: 2px solid #f6be00;
+
+
+            }
+        }
+
+    }
+
+    .elegal {
+        z-index: 999;
+        background-color: red;
+        width: 20rem;
+
+       
+        iframe {
+            position: absolute;
+            top: 0;
+            width: 25rem;
+        }
+    }
+
+    .container {
+        position: relative;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 45rem;
+        }
+
+        .content {
+            position: absolute;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            height: 100%;
+
+            .informationMovie {
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                h2 {
+                    font-weight: bold;
+                    font-size: 2.5rem;
+                }
+
+                p {
+                    font-size: 1.1rem;
+
+                    span {
+                        color: #f6be00;
+                    }
+
+                    .added {
+                        cursor: pointer;
+                    }
+
+                    .starIMDB {
+                        color: #f6be00;
+                    }
+                }
+
+                button {
+                    width: 200px;
+                    padding: 10px;
+                    background-color: #f6be00;
+                    border-radius: 10px;
+                    border: 1px solid #f6be00;
+                    color: #000;
+                    transition: 1s;
+                    font-weight: 500;
+
+                    &:hover {
+                        background-color: #fff;
+                        border: 1px solid #fff;
+
+                    }
+
+                }
+            }
+
+            .play {
+                display: flex;
+                align-items: center;
+                margin: 0 1rem;
+                position: relative;
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    animation: animePlay 2s infinite;
+                    width: 4rem;
+                    height: 4rem;
+                    background-color: #f6be00;
+                    border-radius: 50%;
+                }
+
+                i {
+                    font-size: 1.3rem;
+                    transition: 1s;
+                    width: 4rem;
+                    height: 4rem;
+                    background-color: #f6be00;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    transition: 1s;
+                    position: relative;
+                    color: rgb(48, 48, 48);
+                    z-index: 999;
+
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#descriptions {
+    background-color: black;
+    color: #fff;
+    padding: 1rem 0;
+
+    .container {
+        h5 {
+            width: 155px;
+            background-color: #f6be00;
+            padding: 15px;
+            border-radius: 30px;
+            text-align: center;
+            color: #000;
+            margin: 1rem 0;
+        }
+
+        #description {
+            h6 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+        }
+    }
 }

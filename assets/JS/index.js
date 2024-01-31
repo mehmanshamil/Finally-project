@@ -32,13 +32,13 @@ async function trendGet() {
                         <i onclick="addToWish(${item.id})" class="fa-regular wish fa-heart"></i>
                         <div class="content">
                             <div class="detailContent">
-                                <p>${item.title}</p>
+                            <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}">${item.title}</a></p>
                                 <div class="d-flex align-items-center gap-2">
                                     <i class="fa-regular fa-clock"></i>
                                     <span>${item.duration}</span>
                                 </div>
                             </div>
-                            <i class="fa-solid plays fa-play"></i>
+                            <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}"> <i class="fa-solid plays fa-play"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -96,13 +96,13 @@ async function moviesGet() {
                     <i onclick="addToWish(${item.id})" class="fa-regular wish fa-heart"></i>
                     <div class="content">
                         <div class="detailContent">
-                            <p>${item.title}</p>
+                            <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}">${item.title}</a></p>
                             <div class="d-flex align-items-center gap-2">
                                 <i class="fa-regular fa-clock"></i>
                                 <span>${item.duration}</span>
                             </div>
                         </div>
-                        <i class="fa-solid plays fa-play"></i>
+                        <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}"> <i class="fa-solid plays fa-play"></i></a></p>
                     </div>
                 </div>
             `;
@@ -121,6 +121,7 @@ function addToWish(id) {
     console.log(wish);
     wishLengthFunc()
 }
+
 function wishLengthFunc(){
     let wish = JSON.parse(localStorage.getItem("wish")) || [];
     wishLength.innerHTML=wish.length

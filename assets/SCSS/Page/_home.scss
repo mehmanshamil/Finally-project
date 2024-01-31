@@ -198,7 +198,8 @@
 #trending {
     background-color: rgb(11, 11, 13);
     padding: 1rem 0;
-
+    position: relative;
+    z-index: 9;
     .container {
         .head {
             display: flex;
@@ -224,6 +225,7 @@
             }
 
             p {
+               a{
                 color: #fff;
                 opacity: 0.7;
                 margin: 0;
@@ -234,6 +236,7 @@
                     opacity: 1;
                     color: #f6be00;
                 }
+               }
             }
 
         }
@@ -326,12 +329,17 @@
                     justify-content: space-between;
 
                     p {
-                        cursor: pointer;
-                        transition: 1s;
+                        a {
+                            cursor: pointer;
+                            transition: 1s;
+                            color: #fff;
+                            font-weight: 500;
 
-                        &:hover {
-                            color: #f6be00;
+                            &:hover {
+                                color: #f6be00;
+                            }
                         }
+
                     }
 
                     .plays {
@@ -597,6 +605,7 @@ swiper-container {
             }
 
             p {
+              a{
                 color: #fff;
                 opacity: 0.7;
                 margin: 0;
@@ -607,6 +616,7 @@ swiper-container {
                     opacity: 1;
                     color: #f6be00;
                 }
+              }
             }
         }
 
@@ -667,17 +677,24 @@ swiper-container {
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-                        .detailContent{
+
+                        .detailContent {
                             width: 80%;
                         }
 
                         p {
-                            cursor: pointer;
-                            transition: 1s;
+                            a {
+                                cursor: pointer;
+                                transition: 1s;
+                                color: #fff;
+                                font-weight: 500;
 
-                            &:hover {
-                                color: #f6be00;
+                                &:hover {
+                                    color: #f6be00;
+                                }
+
                             }
+
                         }
 
                         .plays {
