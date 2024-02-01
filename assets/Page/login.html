@@ -31,7 +31,7 @@
                 <a href="#">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
-                <a href="../../assets/Page/login.html">
+                <a href="#">
                     <i class="fa-regular fa-user"></i>
                 </a>
                 <a href="#">
@@ -41,17 +41,25 @@
         </div>
     </header>
     <main>
-        <section id="srcMovieSec">
+        <section id="loginSec">
             <div class="container">
-                <form id="srcMovie" action="#">
-                    <input required id="movieNameVal" placeholder="Please Movie Name..." type="text">
-                    <button><i class="fa-solid fa-magnifying-glass fa-beat-fade"></i>Search</button>
+                <h1>Login</h1>
+                <form id="loginGet" action="#">
+                    <label for="username">Username Or Email</label>
+                    <input required id="username" placeholder="Please enter your email or username" type="text">
+                    <label for="password">Password</label>
+                    <div class="paswordContent">
+                        <input required id="password" placeholder="Please enter your password" type="password">
+                        <i id="seenPass" class="fa-solid fa-eye"></i>
+                    </div>
+                    <div class="remmeber">
+                        <input id="rememberMe" type="checkbox">
+                        <label for="rememberMe">Remember Me </label>
+                    </div>
+                    <button>sign in</button>
+                    <p class="alertFalse"></p>
+                    <a href="../../assets/Page/register.html">Don't Have An Account?</a>
                 </form>
-            </div>
-        </section>
-        <section id="movies" class="movSec">
-            <div class="container">
-                <div id="moviesProducts"></div>
             </div>
         </section>
     </main>
@@ -60,13 +68,11 @@
             © Copyright 2024 4K Star All Rights Reserved
         </p>
     </footer>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../assets/JS/searchMovie.js"></script>
+    <script src="../../assets/JS/login.js"></script>
     <script src="../../assets/JS/main.js"></script>
+    <script src="../../assets/JS/loginReg.js"></script>
 </body>
 
 </html>

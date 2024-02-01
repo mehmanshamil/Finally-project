@@ -4,28 +4,28 @@ async function moviesGet() {
     try {
         const response = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/products`);
         db = response.data;
-        // display(db)
-        db.forEach((item) => {
-            let div = document.createElement("div");
-            div.className = "moiveProBox";
-            div.innerHTML = `
-                <img src="${item.image}" alt="${item.title}">
-                <div class="detailInfo">
-                    <i onclick="addToWish(${item.id})" class="fa-regular wish fa-heart"></i>
-                    <div class="content">
-                        <div class="detailContent">
-                            <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}">${item.title}</a></p>
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="fa-regular fa-clock"></i>
-                                <span>${item.duration}</span>
-                            </div>
-                        </div>
-                        <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}"> <i class="fa-solid plays fa-play"></i></a></p>
-                    </div>
-                </div>
-            `;
-            moviesProducts.appendChild(div);
-        });
+        display(db)
+        // db.forEach((item) => {
+        //     let div = document.createElement("div");
+        //     div.className = "moiveProBox";
+        //     div.innerHTML = `
+        //         <img src="${item.image}" alt="${item.title}">
+        //         <div class="detailInfo">
+        //             <i onclick="addToWish(${item.id})" class="fa-regular wish fa-heart"></i>
+        //             <div class="content">
+        //                 <div class="detailContent">
+        //                     <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}">${item.title}</a></p>
+        //                     <div class="d-flex align-items-center gap-2">
+        //                         <i class="fa-regular fa-clock"></i>
+        //                         <span>${item.duration}</span>
+        //                     </div>
+        //                 </div>
+        //                 <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}"> <i class="fa-solid plays fa-play"></i></a></p>
+        //             </div>
+        //         </div>
+        //     `;
+        //     moviesProducts.appendChild(div);
+        // });
     } catch (err) {
         console.log(err);
     }
@@ -49,7 +49,7 @@ async function searchMovie(e) {
             } else {
                 display(data);
             }
-
+            srcMovie.reset();
         })
         .catch((err) => console.log(err))
 

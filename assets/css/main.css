@@ -42,14 +42,48 @@ header .container .add-list {
   align-items: center;
   gap: 25px;
   z-index: 5;
-}
-header .container .add-list #wishlist {
   position: relative;
 }
-header .container .add-list #wishlist:hover #wishLength {
+header .container .add-list #red:hover .miniMenu {
+  display: block;
+}
+header .container .add-list .miniMenu {
+  background-color: black;
+  position: absolute;
+  top: 1.7rem;
+  border-radius: 10px;
+  border: 1px solid #f6be00;
+  left: -1rem;
+  display: none;
+  animation: headerAnime 1s forwards;
+}
+header .container .add-list .miniMenu ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 8rem;
+  border-radius: 10px;
+}
+header .container .add-list .miniMenu ul li {
+  padding: 10px;
+}
+header .container .add-list .miniMenu ul li a {
+  color: #fff;
+  transition: 1s;
+}
+header .container .add-list .miniMenu ul li a:hover {
+  color: #f6be00;
+}
+header .container .add-list .miniMenu ul li a:hover i {
+  color: #f6be00;
+}
+header .container #wishlist {
+  position: relative;
+}
+header .container #wishlist:hover #wishLength {
   background-color: yellow;
 }
-header .container .add-list #wishlist #wishLength {
+header .container #wishlist #wishLength {
   font-size: 0.7rem;
   font-weight: 600;
   background-color: #fff;
@@ -65,13 +99,13 @@ header .container .add-list #wishlist #wishLength {
   right: -20px;
   transition: 1s;
 }
-header .container .add-list i {
+header .container i {
   cursor: pointer;
   color: #fff;
   font-size: 1.2rem;
   transition: 1s;
 }
-header .container .add-list i:hover {
+header .container i:hover {
   color: black;
 }
 
@@ -313,6 +347,90 @@ body {
   font-size: 1.5rem;
   text-align: center;
   font-weight: 600;
+}
+
+#loginSec .container {
+  color: #fff;
+  background-color: rgb(11, 11, 13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#loginSec .container h1 {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+#loginSec .container #loginGet {
+  display: flex;
+  flex-direction: column;
+  width: 518px;
+  gap: 15px;
+  box-shadow: 0 2px 20px 0.2px #f6be00;
+  padding: 20px;
+  border-radius: 10px;
+}
+#loginSec .container #loginGet .alertFalse {
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  display: none;
+  border-radius: 10px;
+  font-weight: 500;
+}
+#loginSec .container #loginGet .paswordContent {
+  width: 100%;
+  position: relative;
+}
+#loginSec .container #loginGet .paswordContent input {
+  width: 100%;
+}
+#loginSec .container #loginGet .paswordContent #seenPass {
+  position: absolute;
+  right: 1rem;
+  z-index: 9;
+  top: 10px;
+  color: black;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+#loginSec .container #loginGet .remmeber {
+  display: flex;
+  gap: 10px;
+}
+#loginSec .container #loginGet .remmeber #rememberMe {
+  border-radius: 50% !important;
+}
+#loginSec .container #loginGet .remmeber input,
+#loginSec .container #loginGet .remmeber label {
+  cursor: pointer;
+}
+#loginSec .container #loginGet input {
+  padding: 10px;
+  border: 1px solid #f6be00;
+  border-radius: 10px;
+}
+#loginSec .container #loginGet button {
+  background-color: black;
+  color: #f6be00;
+  padding: 10px;
+  border: 1px solid #f6be00;
+  transition: 1s;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+#loginSec .container #loginGet button:hover {
+  background-color: #f6be00;
+  color: black;
+}
+#loginSec .container #loginGet a {
+  color: #f6be00;
+  text-align: center;
+  margin: 1rem 0;
+  text-decoration: underline !important;
+}
+#loginSec .container #loginGet a:hover {
+  text-decoration: none !important;
 }
 
 * {

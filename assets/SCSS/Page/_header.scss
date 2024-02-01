@@ -8,13 +8,15 @@ header {
 
         nav {
             width: 50rem;
+
             ul {
                 display: flex;
                 // width: 80%;
                 width: 45%;
                 justify-content: space-around;
-                 margin: 0;
-                    // background: url("../../../assets/Page/detaillMovie.html");
+                margin: 0;
+
+                // background: url("../../../assets/Page/detaillMovie.html");
                 li {
 
                     a {
@@ -52,58 +54,106 @@ header {
             align-items: center;
             gap: 25px;
             z-index: 5;
+            position: relative;
 
-            #wishlist {
-                position: relative;
-
+            #red {
                 &:hover {
-                    #wishLength {
-                        background-color: yellow;
+                    .miniMenu {
+                        display: block;
                     }
-                }
-
-                #wishLength {
-                    font-size: 0.7rem;
-                    font-weight: 600;
-                    background-color: #fff;
-                    color: black;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    display: flex;
-                    border-radius: 50%;
-                    justify-content: center;
-                    align-items: center;
-                    position: absolute;
-                    top: -18px;
-                    right: -20px;
-                    transition: 1s;
                 }
             }
 
-            i {
-                cursor: pointer;
-                color: #fff;
-                font-size: 1.2rem;
-                transition: 1s;
+            .miniMenu {
+                background-color: black;
+                position: absolute;
+                top: 1.7rem;
+                border-radius: 10px;
+                border: 1px solid #f6be00;
+                left: -1rem;
+                display: none;
+                animation: headerAnime 1s forwards;
 
-                &:hover {
-                    color: black;
-                    // color: rgb(246, 190, 0);
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    text-align: center;
+                    width: 8rem;
+                    border-radius: 10px;
+
+                    li {
+                        padding: 10px;
+
+                        a {
+                            color: #fff;
+                            transition: 1s;
+
+                            &:hover {
+                                color: #f6be00;
+
+                                i {
+                                    color: #f6be00;
+                                }
+                            }
+                        }
+                    }
                 }
+
+            }
+        }
+
+        #wishlist {
+            position: relative;
+
+            &:hover {
+                #wishLength {
+                    background-color: yellow;
+                }
+            }
+
+            #wishLength {
+                font-size: 0.7rem;
+                font-weight: 600;
+                background-color: #fff;
+                color: black;
+                width: 1.5rem;
+                height: 1.5rem;
+                display: flex;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: -18px;
+                right: -20px;
+                transition: 1s;
+            }
+        }
+
+        i {
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2rem;
+            transition: 1s;
+
+            &:hover {
+                color: black;
             }
         }
     }
 }
-.headerFix{
+
+
+.headerFix {
     width: 100%;
     background-color: black;
     position: fixed;
     z-index: 9999;
-    animation:  headerAnime 2s forwards;
-    .add-list{
-        a{
-            i{
-                &:hover{
+    animation: headerAnime 2s forwards;
+
+    .add-list {
+        a {
+            i {
+                &:hover {
                     color: #f6be00;
                 }
             }
@@ -111,10 +161,12 @@ header {
     }
 }
 
-@keyframes headerAnime{
-    from{
+@keyframes headerAnime {
+    from {
         transform: translateY(-200px);
-    }to{
+    }
+
+    to {
         transform: translateY(0);
     }
 }
