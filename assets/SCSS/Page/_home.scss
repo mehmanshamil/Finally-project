@@ -670,16 +670,16 @@ swiper-container {
                     padding: 15px;
                     transition: 1s;
 
-                    // .wish {
-                    //     align-self: flex-end;
-                    //     cursor: pointer;
-                    //     transition: 1s;
-                    //     font-size: 1.5rem;
+                    .wish {
+                        align-self: flex-end;
+                        cursor: pointer;
+                        transition: 1s;
+                        font-size: 1.5rem;
 
-                    //     &:hover {
-                    //         color: #f6be00;
-                    //     }
-                    // }
+                        &:hover {
+                            color: #f6be00;
+                        }
+                    }
 
                     .content {
                         display: flex;

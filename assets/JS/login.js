@@ -4,16 +4,16 @@ let username = document.getElementById("username");
 let alertF = document.querySelector(".alertFalse");
 
 // Login
-login.addEventListener("submit", async function (e) {
+login.addEventListener("submit", async (e) => {
     e.preventDefault();
     try {
         let res = await axios.get("https://65b7689c46324d531d548041.mockapi.io/account");
         let db = res.data;
         let found = false;
-
         db.forEach((item) => {
             if (password.value == item.password && username.value == item.userName || username.value == item.email) {
                 found = true;
+                userLogin(item.id)
                 return;
             }
         });
@@ -22,6 +22,7 @@ login.addEventListener("submit", async function (e) {
             alertF.style.display = "block";
             alertF.style.backgroundColor = "green";
             alertF.innerHTML = `Succes <i class="fa-regular mx-1 fa-circle-check"></i>`;
+
         } else {
             alertF.style.display = "block";
             alertF.style.backgroundColor = "red";
@@ -31,3 +32,7 @@ login.addEventListener("submit", async function (e) {
         console.log(err);
     }
 });
+
+function userLogin(id){
+    window.location.href = `../../index.html?id=${id}`;
+}

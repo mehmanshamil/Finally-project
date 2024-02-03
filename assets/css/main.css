@@ -2,9 +2,192 @@ header {
   background-color: black;
   padding: 20px;
 }
+header .closedSett {
+  display: none !important;
+}
+header #settAcc {
+  width: 98.7%;
+  position: absolute;
+  background-color: rgb(48, 48, 48);
+  color: #f6be00;
+  top: 4rem;
+  z-index: 999;
+  font-weight: 600;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+  border-radius: 10px;
+  padding: 20px;
+}
+header #settAcc #SettingsChange {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+header #settAcc .image {
+  display: flex;
+  flex-direction: column;
+}
+header #settAcc .image input {
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+}
+header #settAcc .contentSet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  margin: 0 1.5rem;
+}
+header #settAcc .contentSet input {
+  border-radius: 10px;
+  padding: 5px;
+  border: none;
+}
+header #settAcc button {
+  color: #fff;
+  background-color: green;
+  border-radius: 10px;
+  margin: 1rem 0;
+  width: 150px;
+  font-weight: 600;
+  padding: 10px;
+  border: 2px solid green;
+  transition: 1s;
+}
+header #settAcc button:hover {
+  background-color: #fff;
+  color: green;
+}
+header #settAcc #closeSett {
+  color: red;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.7rem;
+  cursor: pointer;
+  border: 2px solid red;
+  transition: 1s;
+}
+header #settAcc #closeSett:hover {
+  background-color: red;
+  color: #fff;
+}
+header #settAcc img {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  margin: 1.5rem;
+}
+header .profileUser {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+header .profileUser:hover .accountSettinngs {
+  display: flex;
+}
+header .profileUser .accountSettinngs {
+  position: absolute;
+  top: 2rem;
+  background-color: black;
+  width: 150px;
+  left: -4rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #f6be00;
+  animation: headerAnime 1s forwards;
+}
+header .profileUser .accountSettinngs span {
+  color: #fff;
+  cursor: pointer;
+}
+header .profileUser .accountSettinngs span:hover {
+  color: #f6be00;
+}
+header .profileUser .accountSettinngs span:hover i {
+  color: #f6be00;
+}
+header .profileUser .accountSettinngs .logOut {
+  display: flex;
+}
+header .profileUser .accountSettinngs .logOut:hover {
+  color: red;
+}
+header .profileUser .accountSettinngs .logOut:hover i {
+  color: red;
+}
+header .profileUser span {
+  color: #f6be00;
+  display: flex;
+  align-items: center;
+}
+header .profileUser span i:hover {
+  color: #f6be00;
+}
+header .profileUser img {
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
 header .container {
   display: flex;
   justify-content: space-between;
+}
+header .container .logo {
+  display: flex;
+  gap: 20px;
+}
+header .container .logo .welcome {
+  width: 30%;
+  background-color: black;
+  border: 1px solid #f6be00;
+  height: 3.5rem;
+  top: 4rem;
+  position: absolute;
+  z-index: 9;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  gap: 25px;
+  color: #f6be00;
+  border-radius: 10px;
+  animation: headerAnime 1s forwards;
+}
+header .container .logo .welcome .userNameAcc {
+  color: #f6be00;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+header .container .logo .welcome .userNameAcc img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+header .container .logo .welcome .userNameAcc span {
+  font-weight: bold;
 }
 header .container nav {
   width: 50rem;
@@ -111,6 +294,9 @@ header .container .add-list .wishHead .wish #wishListen .wishBox .addOption {
   height: 100%;
   margin: 0.5rem;
   padding: 4px;
+}
+header .container .add-list .wishHead .wish #wishListen .wishBox .addOption .plays:hover {
+  color: #f6be00;
 }
 header .container .add-list .wishHead .wish #wishListen .wishBox .removeWish {
   color: #f6be00;
@@ -570,6 +756,7 @@ body {
   padding: 10px;
   color: #fff;
   display: flex;
+  justify-content: space-between;
 }
 #addSec .container #addSaveList .addBox .content .getMovie {
   cursor: pointer;
@@ -1168,6 +1355,15 @@ swiper-container {
   justify-content: space-between;
   padding: 15px;
   transition: 1s;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .wish {
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 1s;
+  font-size: 1.5rem;
+}
+#movies .container #moviesProducts .moiveProBox .detailInfo .wish:hover {
+  color: #f6be00;
 }
 #movies .container #moviesProducts .moiveProBox .detailInfo .content {
   display: flex;
