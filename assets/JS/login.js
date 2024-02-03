@@ -1,10 +1,9 @@
 let password = document.getElementById("password");
-// let seenPass = document.getElementById("seenPass");
 let login = document.getElementById("loginGet");
 let username = document.getElementById("username");
 let alertF = document.querySelector(".alertFalse");
-// let toogle = true;
 
+// Login
 login.addEventListener("submit", async function (e) {
     e.preventDefault();
     try {
@@ -13,7 +12,7 @@ login.addEventListener("submit", async function (e) {
         let found = false;
 
         db.forEach((item) => {
-            if (password.value == item.password && username.value == item.userName) {
+            if (password.value == item.password && username.value == item.userName || username.value == item.email) {
                 found = true;
                 return;
             }
@@ -32,18 +31,3 @@ login.addEventListener("submit", async function (e) {
         console.log(err);
     }
 });
-
-// seenPass.addEventListener("click", paswwordSeen);
-
-// function paswwordSeen() {
-//     if (toogle) {
-//         password.setAttribute("type", "text");
-//         seenPass.classList.remove("fa-eye");
-//         seenPass.classList.add("fa-eye-slash");
-//     } else {
-//         password.setAttribute("type", "password");
-//         seenPass.classList.remove("fa-eye-slash");
-//         seenPass.classList.add("fa-eye");
-//     }
-//     toogle = !toogle;
-// }

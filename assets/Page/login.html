@@ -27,15 +27,28 @@
                     <li id="addList"><a href="#">ADD TO LiST</a></li>
                 </ul>
             </nav>
-            <div class="add-list">
-                <a href="#">
+            <div class="add-list added">
+                <a href="./assets/Page/searchMovie.html">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
-                <a href="#">
-                    <i class="fa-regular fa-user"></i>
-                </a>
-                <a href="#">
+                <div id="logReg">
+                    <a class="loginReg" href="#">
+                        <i class="fa-regular fa-user"></i>
+                        <div class="miniMenu">
+                            <ul>
+                                <li><a href="#">Register</a></li>
+                                <li><a href="#"><i
+                                            class="fa-solid mx-2 fa-arrow-right-to-bracket"></i>Login</a></li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+                <a class="wishHead">
                     <i id="wishlist" class="fa-regular fa-heart"><span id="wishLength">0</span></i>
+                    <p id="wishAlert">This movie is already available in the Wishlist !</p>
+                    <div class="wish">
+                        <div id="wishListen"></div>
+                    </div>
                 </a>
             </div>
         </div>

@@ -24,16 +24,14 @@
                 <ul>
                     <li><a href="#">HOME</a></li>
                     <li><a href="#movies">MOVIE</a></li>
-                    <!-- <li><a href="#">TV SHOWS</a></li> -->
-                    <!-- <li><a href="#">WEB SERIES</a></li> -->
-                    <li id="addList"><a href="#">ADD TO LiST</a></li>
+                    <li id="addList"><a href="./assets/Page/addList.html">ADD TO LiST</a></li>
                 </ul>
             </nav>
             <div class="add-list">
                 <a href="./assets/Page/searchMovie.html">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
-                <div id="red">
+                <div id="logReg">
                     <a class="loginReg" href="#">
                         <i class="fa-regular fa-user"></i>
                         <div class="miniMenu">
@@ -45,8 +43,12 @@
                         </div>
                     </a>
                 </div>
-                <a href="#">
+                <a class="wishHead">
                     <i id="wishlist" class="fa-regular fa-heart"><span id="wishLength">0</span></i>
+                    <p id="wishAlert">This movie is already available in the Wishlist !</p>
+                    <div class="wish">
+                        <div id="wishListen"></div>
+                    </div>
                 </a>
             </div>
         </div>
@@ -68,9 +70,15 @@
                             <span>3.4</span>
                         </div>
                         <div class="addIcons">
-                            <i class="fa-regular fa-bookmark"></i>
-                            <i class="fa-regular fa-heart"></i>
-                            <i class="fa-regular fa-star"></i>
+                            <a href="./assets/Page/addList.html">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </a>
+                            <a onclick="wishlistScreen()" href="#">
+                                <i class="fa-regular fa-heart"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-regular fa-star"></i>
+                            </a>
                         </div>
                     </div>
                     <p class="my-3">
@@ -93,11 +101,9 @@
                         <button class="playBtn"><i class="fa-solid fa-play"></i>Play Now</button>
                         <button class="addBtn"><i class="fa-solid addList fa-plus"></i> Add to list</button>
                     </div>
-
                 </div>
                 <div class="play">
                     <i class="fa-solid fa-play"></i>
-                    <!-- <iframe src="https://www.youtube.com/watch?v=xoOzqBkDVH4" frameborder="0"></iframe> -->
                 </div>
             </div>
         </section>
@@ -128,58 +134,7 @@
                 </div>
                 <div id="content">
                     <div id="categoryMovies" class="row w-100 my-5">
-                        <!-- <div class="col-xl-3 mt-2 col-md-6 col-sm-12">
-                            <div class="categoryBox">
-                                <img class="imgCat" src="./assets/Image/01 (1).jpg" alt="categoryImage">
-                                <p class="textCategory">
-                                    Movies
-                                </p>
-                                <div class="action">
-                                    <img src="https://themes.potenzaglobalsolutions.com/html/4k-star/images/svg/animated-film.svg"
-                                        alt="logo">
-                                    <p>Movies</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 mt-2 col-md-6 col-sm-12">
-                            <div class="categoryBox">
-                                <img class="imgCat" src="./assets/Image/01 (1).jpg" alt="categoryImage">
-                                <p class="textCategory">
-                                    Web Series
-                                </p>
-                                <div class="action">
-                                    <img src="https://themes.potenzaglobalsolutions.com/html/4k-star/images/svg/web-series.svg"
-                                        alt="logo">
-                                    <p> Web Series</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 mt-2 col-md-6 col-sm-12">
-                            <div class="categoryBox">
-                                <img class="imgCat" src="./assets/Image/01 (1).jpg" alt="categoryImage">
-                                <p class="textCategory">
-                                    Cartoons
-                                </p>
-                                <div class="action">
-                                    <img src="https://themes.potenzaglobalsolutions.com/html/4k-star/images/svg/cartoons.svg"
-                                        alt="logo">
-                                    <p>Cartoons</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 mt-2 col-md-6 col-sm-12">
-                            <div class="categoryBox">
-                                <img class="imgCat" src="./assets/Image/01 (1).jpg" alt="categoryImage">
-                                <p class="textCategory">
-                                    TV Shows
-                                </p>
-                                <div class="action">
-                                    <img src="https://themes.potenzaglobalsolutions.com/html/4k-star/images/svg/television-tv.svg"
-                                        alt="logo">
-                                    <p>TV Shows</p>
-                                </div>
-                            </div>
-                        </div> -->
+
                     </div>
                 </div>
             </div>
@@ -195,70 +150,7 @@
                     </p>
                 </div>
                 <div id="moviesProducts">
-                    <!-- <div class="moiveProBox">
-                        <img src="./assets/Image/19 (1).jpg" alt="movieImg">
-                        <div class="detailInfo">
-                            <i class="fa-regular wish fa-heart"></i>
-                            <div class="content">
-                                <div class="detailContent">
-                                    <p>The Seven Saurai</p>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span>3hr: 15mins</span>
-                                    </div>
-                                </div>
-                                <i class="fa-solid plays fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moiveProBox">
-                        <img src="./assets/Image/19 (1).jpg" alt="movieImg">
-                        <div class="detailInfo">
-                            <i class="fa-regular wish fa-heart"></i>
-                            <div class="content">
-                                <div class="detailContent">
-                                    <p>The Seven Saurai</p>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span>3hr: 15mins</span>
-                                    </div>
-                                </div>
-                                <i class="fa-solid plays fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moiveProBox">
-                        <img src="./assets/Image/19 (1).jpg" alt="movieImg">
-                        <div class="detailInfo">
-                            <i class="fa-regular wish fa-heart"></i>
-                            <div class="content">
-                                <div class="detailContent">
-                                    <p>The Seven Saurai</p>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span>3hr: 15mins</span>
-                                    </div>
-                                </div>
-                                <i class="fa-solid plays fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="moiveProBox">
-                        <img src="./assets/Image/19 (1).jpg" alt="movieImg">
-                        <div class="detailInfo">
-                            <i class="fa-regular wish fa-heart"></i>
-                            <div class="content">
-                                <div class="detailContent">
-                                    <p>The Seven Saurai</p>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span>3hr: 15mins</span>
-                                    </div>
-                                </div>
-                                <i class="fa-solid plays fa-play"></i>
-                            </div>
-                        </div>
-                    </div> -->
+
                 </div>
                 <div class="d-flex justify-content-end w-100">
                     <button id="loadMore"><i class="fa-solid fa-arrow-up"></i> Load more</button>

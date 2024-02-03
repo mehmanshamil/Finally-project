@@ -1,7 +1,5 @@
 let register = document.getElementById("loginGet");
-// let seenPass = document.getElementById("seenPass");
 let alertF = document.querySelector(".alertFalse");
-// let toogle = true;
 
 // Register
 let username = document.getElementById("username");
@@ -27,17 +25,3 @@ function getRegister(e) {
         })
         .catch((err) => console.log(err))
 }
-// seenPass.addEventListener("click", paswwordSeen);
-
-// function paswwordSeen() {
-//     if (toogle) {
-//         newPassword.setAttribute("type", "text");
-//         seenPass.classList.remove("fa-eye");
-//         seenPass.classList.add("fa-eye-slash");
-//     } else {
-//         newPassword.setAttribute("type", "password");
-//         seenPass.classList.remove("fa-eye-slash");
-//         seenPass.classList.add("fa-eye");
-//     }
-//     toogle = !toogle;
-// }

@@ -66,6 +66,7 @@
                     display: flex;
                     gap: 20px;
 
+                 a{
                     i {
                         cursor: pointer;
                         width: 3rem;
@@ -76,6 +77,7 @@
                         border-radius: 50%;
                         background-color: rgb(48, 48, 48);
                         transition: 1s;
+                        color: #fff;
 
                         &:hover {
                             background-color: yellow;
@@ -83,6 +85,7 @@
                         }
 
                     }
+                 }
                 }
             }
 
@@ -317,9 +320,13 @@
                     align-self: flex-end;
                     cursor: pointer;
                     transition: 1s;
-
                     &:hover {
                         color: #f6be00;
+                    }
+                    .play{
+                        &:hover{
+                            color: #f6be00;
+                        }
                     }
                 }
 
@@ -663,15 +670,16 @@ swiper-container {
                     padding: 15px;
                     transition: 1s;
 
-                    .wish {
-                        align-self: flex-end;
-                        cursor: pointer;
-                        transition: 1s;
+                    // .wish {
+                    //     align-self: flex-end;
+                    //     cursor: pointer;
+                    //     transition: 1s;
+                    //     font-size: 1.5rem;
 
-                        &:hover {
-                            color: #f6be00;
-                        }
-                    }
+                    //     &:hover {
+                    //         color: #f6be00;
+                    //     }
+                    // }
 
                     .content {
                         display: flex;

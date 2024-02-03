@@ -63,15 +63,16 @@ async function getPlayerMovie() {
                 window.location.href = "/";
             }
             movieDetal.innerHTML = `
-        <img class="movieDetailPlay" src="${thisMovie.image}" alt="img">
-        <div class="content mx-5">
+             <img class="movieDetailPlay" src="${thisMovie.image}" alt="img">
+            <div class="content mx-5">
             <div class="informationMovie">
                 <h2>${thisMovie.title}</h2>
-                <p>IMDB:<i class="fa-solid mx-2 starIMDB fa-star"></i><span>${thisMovie.imdb}</span>/10</p>
+                <p>IMDB:<i class="fa-solid mx-2 starIMDB fa-star"></i><span>${thisMovie.imdb}</span> / 10</p>
                 <p>Category: <span>${thisMovie.category}</span></p>
                 <p>Date: <span>${thisMovie.uploadTime}</span></p>
                 <p><i class="fa-regular fa-clock"></i> Time : <span>${thisMovie.duration}</span></p>
-                <p><i class="fa-solid added fa-plus"></i> Add to List</p>
+                <p><i onclick="addSaveFunc(${thisMovie.id},this)" class="fa-solid added fa-plus"></i> Add to List</p>
+                <p>Price : ${thisMovie.price} $</p>
                 <p>
                 ${thisMovie.description}
                 </p>
@@ -80,13 +81,32 @@ async function getPlayerMovie() {
             <div class="play">
             <i onclick="myfunc('${thisMovie.videoUrl}')" class="fa-solid fa-play"></i>
             </div>
-        </div>
+            </div>
         `
             descripText.textContent = thisMovie.description;
         })
         .catch(err => console.log(err))
 }
 getPlayerMovie()
+
+function addSaveFunc(id, element) {
+    let list = JSON.parse(localStorage.getItem("list")) || [];
+    let listItem = list.find((item) => item.id.toString() === id.toString());
+
+    if (listItem) {
+        element.classList.remove("fa-thumbs-up");
+        element.classList.add("fa-plus");
+        list = list.filter((item) => item.id.toString() !== id.toString());
+        localStorage.setItem("list", JSON.stringify(list));
+    } else {
+        element.classList.remove("fa-plus");
+        element.classList.add("fa-thumbs-up");
+        list.push(db.find((item) => item.id.toString() === id.toString()));
+        localStorage.setItem("list", JSON.stringify(list));
+    }
+}
+
+
 // WATCHING
 
 

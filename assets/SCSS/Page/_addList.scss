@@ -1,0 +1,83 @@
+#addSec {
+    .container {
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin: 1.5rem 0;
+        }
+
+        #addSaveList {
+        
+
+            .addBox {
+                display: flex;
+                margin: 1rem 0;
+                border: 1px solid #f6be00;
+                padding: 10px;
+                border-radius: 10px;
+                transition: 1s;
+    
+                &:hover {
+                    box-shadow: 0 2px 20px 0.2px #f6be00;
+                }
+
+                img {
+                    width: 10rem;
+                    border-radius: 10px;
+                    object-fit: cover;
+
+                }
+
+                .content {
+                    width: 100%;
+                    padding: 10px;
+                    color: #fff;
+                    display: flex;
+                    .getMovie{
+                        cursor: pointer;
+                        transition: 1s;
+                        &:hover{
+                            color: #f6be00;
+                        }
+                    }
+                    .option {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        i {
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+
+                        .removeAdd {
+                            border-radius: 50%;
+                            border: 1px solid #f6be00;
+                            color: #f6be00;
+                            transition: 1s;
+
+                            &:hover {
+                                background-color: #f6be00;
+                                color: #000;
+                            }
+                        }
+                    
+
+                        .plays {
+                            font-size: 1.5rem;
+                            transition: 1s;
+
+                            &:hover {
+                                color: #f6be00;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
