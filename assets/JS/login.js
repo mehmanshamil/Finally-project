@@ -34,5 +34,5 @@ login.addEventListener("submit", async (e) => {
 });
 
 function userLogin(id){
-    window.location.href = `../../index.html?id=${id}`;
+    window.location.href = `../../index.html?userId=${id}`;
 }

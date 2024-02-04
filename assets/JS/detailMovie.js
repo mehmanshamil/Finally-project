@@ -3,7 +3,6 @@ let moviesProducts = document.getElementById("moviesProducts");
 let categoryTrend = document.getElementById("categoryTrend");
 let loadMore = document.getElementById("loadMore");
 let wishLength = document.getElementById("wishLength");
-
 let db = [];
 
 async function trendGet() {
@@ -29,16 +28,16 @@ async function trendGet() {
                 <div class="swiper-slide swipperSlide">
                     <img src="${item.image}" alt="${item.title}">
                     <div class="detailInfo">
-                        <i onclick="addToWish(${item.id})" class="fa-regular wish fa-heart"></i>
+                        <i onclick="addToWish(${item.id},this)" class="fa-regular wish fa-heart"></i>
                         <div class="content">
                             <div class="detailContent">
-                            <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}">${item.title}</a></p>
+                            <p><a onclick="getMovieLocation(${item.id})">${item.title}</a></p>
                                 <div class="d-flex align-items-center gap-2">
                                     <i class="fa-regular fa-clock"></i>
                                     <span>${item.duration}</span>
                                 </div>
                             </div>
-                            <p><a href="../../assets/Page/detaillMovie.html?id=${item.id}"> <i class="fa-solid plays fa-play"></i></a></p>
+                            <p><a onclick="getMovieLocation(${item.id})"> <i class="fa-solid plays fa-play"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -49,12 +48,43 @@ async function trendGet() {
     }
 }
 
+
+function addToWish(id, element) {
+    let wish = JSON.parse(localStorage.getItem("wish")) || [];
+    let wishItem = wish.find((item) => item.id == id);
+
+    if (wishItem) {
+        wishAlert.style.display = "block";
+        setInterval(() => {
+            wishAlert.style.display = "none";
+        }, 5000);
+    } else {
+        element.classList.remove("fa-regular");
+        element.classList.add("fa-solid");
+        element.style.color = "yellow"
+        wish.push(db.find((item) => item.id == id));
+        localStorage.setItem("wish", JSON.stringify(wish));
+    }
+    wishLengthFunc();
+    wishlistGet();
+}
+
 trendGet();
+
+function getMovieLocation(movieid) {
+    let userid = new URLSearchParams(window.location.search).get('userId');
+    if (userid) {
+        window.location.href = `../../assets/Page/detaillMovie.html?userId=${userid}&movieId=${movieid}`
+    } else {
+        window.location.href = `../../assets/Page/detaillMovie.html?movieId=${movieid}`
+    }
+}
+
 
 async function getPlayerMovie() {
     let descripText = document.getElementById("descripText");
     let movieDetal = document.getElementById("movieDetal");
-    let id = new URLSearchParams(window.location.search).get('id');
+    let id = new URLSearchParams(window.location.search).get('movieId');
     await axios.get("https://65b7689c46324d531d548041.mockapi.io/products")
         .then((res) => {
             db = res.data;
@@ -76,10 +106,10 @@ async function getPlayerMovie() {
                 <p>
                 ${thisMovie.description}
                 </p>
-                <button><i class="fa-solid mx-1 fa-play"></i> Watch Now</button>
+                <button onclick="getMoviePlays('${thisMovie.videoUrl}', ${thisMovie.price})"><i class="fa-solid mx-1 fa-play"></i> Watch Now</button>
             </div>
             <div class="play">
-            <i onclick="myfunc('${thisMovie.videoUrl}')" class="fa-solid fa-play"></i>
+            <i onclick="playMovie('${thisMovie.fragman}')" class="fa-solid fa-play"></i>
             </div>
             </div>
         `
@@ -113,10 +143,102 @@ function extractVideoIdFromUrl(url) {
     return match && match[1] ? match[1] : null;
 }
 
-function myfunc(url) {
+function playMovie(url) {
     console.log(url);
     const videoId = extractVideoIdFromUrl(url);
     openVideo(videoId);
+}
+
+
+async function getMoviePlays(url, price) {
+    let userId = new URLSearchParams(window.location.search).get('userId');
+    let payment = document.getElementById("payment");
+    payment.style.display = "flex"
+    payment.innerHTML = `
+            <i id="closePayment" onclick="closePay()" class="fa-solid fa-xmark"></i>
+            <h3>Are you sure you will buy the movie?</h3>
+            <div class="buttons">
+                <button id="yesButton" class="yes">Yes</button>
+                <button onclick="closePay()" class="no">No</button>
+             </div> 
+    `;
+    let yesButton = document.getElementById("yesButton");
+    yesButton.addEventListener("click", async function () {
+        if (userId) {
+            try {
+                const response = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/account/${userId}`);
+                let userInfo = response.data;
+                if (userInfo.money >= price) {
+                    let resultPrice = userInfo.money - price;
+                    console.log(resultPrice);
+                    const videoId = extractVideoIdFromUrl(url);
+                    openVideo(videoId);
+                    closePay();
+                    updatedMoney(resultPrice, userId);
+                } else {
+                    payment.style.display = "flex"
+                    payment.innerHTML = `
+                            <h3 class="moneyAlert">You don't have enough money !</h3>
+                    `
+                    setTimeout(() => {
+                        payment.style.display = "none"
+                    }, 3500);
+                }
+            } catch (error) {
+                console.error('error', error);
+            }
+        } else {
+            window.location.href = `../../assets/Page/login.html`
+        }
+    });
+}
+async function getUserName(id) {
+    let user = document.querySelector(".logo");
+    let profileUser = document.querySelector(".profileUser");
+    let account = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`)
+    let myAccount = account.data;
+    if (account) {
+        profileUser.innerHTML = `
+        <img src="${myAccount.image}" alt="user photo">
+        <span><i class="fa-solid mx-1 fa-wallet"></i> ${myAccount.money}$</span>
+        <div class="accountSettinngs">
+        <span onclick="getMySettings(${myAccount.id})" class="d-flex gap-2"> <i class="fa-solid fa-gear fa-spin"></i> Settings </span>
+        <span onclick="logOut()" class="logOut gap-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</span>
+        </div>
+        `
+        let div = document.createElement("div");
+        div.className = "welcome"
+        div.innerHTML = ''
+        div.innerHTML = `
+         <div class="userNameAcc">
+         <img src="${myAccount.image}" alt="image">
+         <span> ${myAccount.userName}</span>
+         </div>
+         <span>Welcome ! </span>
+        `
+        user.appendChild(div)
+        setTimeout(() => {
+            user.removeChild(div)
+        }, 3500)
+
+    } else {
+        window.location.href = "/";
+    }
+}
+function updatedMoney(money, userid) {
+    let data = {
+        money: money
+    }
+    axios.put(`https://65b7689c46324d531d548041.mockapi.io/account/${userid}`, data)
+        .then(() => {
+            let id = new URLSearchParams(window.location.search).get('userId');
+            getUserName(id)
+        })
+}
+
+function closePay() {
+    let payment = document.getElementById("payment");
+    payment.style.display = "none";
 }
 
 function openVideo(videoId) {

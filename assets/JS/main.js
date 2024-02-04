@@ -69,3 +69,114 @@ function wishlistScreen() {
     }
     handle = !handle
 }
+
+window.onload = () => {
+    let id = new URLSearchParams(window.location.search).get('userId');
+    if (id) {
+        getUserName(id)
+    }
+}
+
+async function getUserName(id) {
+    let user = document.querySelector(".logo");
+    let profileUser = document.querySelector(".profileUser");
+    let account = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`)
+    let myAccount = account.data;
+    if (account) {
+        profileUser.innerHTML = ''
+        profileUser.innerHTML = `
+        <img src="${myAccount.image}" alt="user photo">
+        <span><i class="fa-solid mx-1 fa-wallet"></i> ${myAccount.money}$</span>
+        <div class="accountSettinngs">
+        <span onclick="getMySettings(${myAccount.id})" class="d-flex gap-2"> <i class="fa-solid fa-gear fa-spin"></i> Settings </span>
+        <span onclick="logOut()" class="logOut gap-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</span>
+        </div>
+        `
+        let div = document.createElement("div");
+        div.className = "welcome"
+        div.innerHTML = ''
+        div.innerHTML = `
+         <div class="userNameAcc">
+         <img src="${myAccount.image}" alt="image">
+         <span> ${myAccount.userName}</span>
+         </div>
+         <span>Welcome ! </span>
+        `
+        user.appendChild(div)
+        setTimeout(() => {
+            user.removeChild(div)
+        }, 3500)
+
+    } else {
+        window.location.href = "/";
+    }
+}
+
+function logOut() {
+    window.location.href = "/";
+}
+
+function closedSetting() {
+    let settAcc = document.getElementById("settAcc");
+    settAcc.style.display = "none";
+}
+
+let newImage = document.getElementById("newImage");
+
+async function getMySettings(id) {
+    let account = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`)
+    let myAccount = account.data;
+    let header = document.querySelector("header");
+    let div = document.createElement("div");
+    div.className = "accountSettingsInf";
+    div.id = "settAcc"
+    div.innerHTML = `
+    <form id="SettingsChange" action="#" method="post">
+    <i onclick="closedSetting()" id="closeSett" class="fa fa-xmark"></i>
+    <div class="image">
+        <img src="${myAccount.image}" alt="photo">
+        <input id="newImage" type="text" placeholder="Url image">
+    </div>
+    <div class="contentSet">
+        <label>My Cash: ${myAccount.money}$</label>
+        <label for="newName">Name:</label>
+        <input required id="newName" value="${myAccount.userName}" type="text">
+        <label for="newsurname">Surname:</label>
+        <input required placeholder="surname" id="newsurname" type="text">
+        <label for="newemail">Email:</label>
+        <input required id="newemail" value="${myAccount.email}" type="email">
+        <label for="newPass">Password:</label>
+        <input required id="newPass" value="${myAccount.password}" type="password">
+        <button type="button" onclick="saveChanges(${myAccount.id})">Save</button>
+    </div> 
+        </form>
+    `
+    header.appendChild(div);
+    let settAcc = document.getElementById("settAcc");
+    settAcc.style.display = "flex";
+}
+
+function saveChanges(id) {
+    let userName = document.getElementById("newName");
+    let image = document.getElementById("newImage");
+    let newsurname = document.getElementById("newsurname");
+    let newemail = document.getElementById("newemail");
+    let newPass = document.getElementById("newPass");
+    let photoDefault = "https://www.shutterstock.com/image-vector/default-profile-picture-avatar-photo-600nw-1681253560.jpg"
+    image.value = image.value === "" ? photoDefault : image.value;
+
+    let data = {
+        userName: userName.value,
+        image: image.value,
+        userSurname: newsurname.value,
+        email: newemail.value,
+        passWord: newPass.value
+    };
+    axios.put(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`, data)
+        .then(() => {
+            let id = new URLSearchParams(window.location.search).get('userId');
+            getUserName(id)
+            closedSetting();
+            console.log(data);
+     })
+}

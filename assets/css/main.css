@@ -11,7 +11,7 @@ header #settAcc {
   background-color: rgb(48, 48, 48);
   color: #f6be00;
   top: 4rem;
-  z-index: 999;
+  z-index: 9999;
   font-weight: 600;
   display: none;
   justify-content: center;
@@ -93,6 +93,7 @@ header .profileUser {
   display: flex;
   align-items: center;
   gap: 10px;
+  z-index: 9;
   position: relative;
 }
 header .profileUser:hover .accountSettinngs {
@@ -433,6 +434,89 @@ body {
   padding: 1rem 0;
   background-color: black;
   color: #fff;
+  position: relative;
+}
+#moviePlayer #payment {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  z-index: 99;
+  top: 15rem;
+  height: 20rem;
+  left: 33%;
+  border: 1px solid #f6be00;
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  gap: 30px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+#moviePlayer #payment .moneyAlert {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: red;
+}
+#moviePlayer #payment #closePayment {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  font-size: 1.3rem;
+  background-color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#moviePlayer #payment #closePayment:hover {
+  border: 2px solid #f6be00;
+  color: #000;
+  background-color: #f6be00;
+}
+#moviePlayer #payment .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+#moviePlayer #payment .buttons button {
+  transition: 1s;
+  padding: 5px 20px;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+#moviePlayer #payment .buttons .yes {
+  background-color: #f6be00;
+  color: #000;
+  border: 1px solid black;
+}
+#moviePlayer #payment .buttons .yes:hover {
+  color: #f6be00;
+  background-color: #000;
+  border: 1px solid #f6be00;
+}
+#moviePlayer #payment .buttons .no {
+  background-color: #000;
+  color: #f6be00;
+  border: 1px solid #f6be00;
+}
+#moviePlayer #payment .buttons .no:hover {
+  color: #000;
+  background-color: #f6be00;
+  border: 1px solid #000;
 }
 #moviePlayer #watch {
   width: 100%;
@@ -1062,6 +1146,7 @@ body {
 .topTrend #categoryTrend .swipperSlide .detailInfo .wish {
   align-self: flex-end;
   cursor: pointer;
+  font-size: 1.5rem;
   transition: 1s;
 }
 .topTrend #categoryTrend .swipperSlide .detailInfo .wish:hover {
