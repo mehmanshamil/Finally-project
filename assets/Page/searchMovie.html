@@ -17,18 +17,19 @@
 <body>
     <header>
         <div class="container">
+            <i id="burgerIcon" class="fa-solid fa-bars"></i>
             <div class="logo">
                 <img src="../../assets/Image/logo (15).png" alt="logo">
             </div>
             <nav>
-                <ul>
-                    <li><a href="../../index.html">HOME</a></li>
+                <ul id="menuList">
+                    <li><a id="homePage" href="../../index.html">HOME</a></li>
                     <li><a href="../../index.html">MOVIE</a></li>
                     <li id="addList"><a href="../../assets/Page/addList.html">ADD TO LiST</a></li>
                 </ul>
             </nav>
             <div class="add-list added">
-                <a href="./assets/Page/searchMovie.html">
+                <a href="#">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
                 <div id="logReg">
@@ -36,8 +37,8 @@
                         <i class="fa-regular fa-user"></i>
                         <div class="miniMenu">
                             <ul>
-                                <li><a href="./assets/Page/register.html">Register</a></li>
-                                <li><a href="./assets/Page/login.html"><i
+                                <li><a href="../../assets/Page/register.html">Register</a></li>
+                                <li><a href="../../assets/Page/login.html"><i
                                             class="fa-solid mx-2 fa-arrow-right-to-bracket"></i>Login</a></li>
                             </ul>
                         </div>
@@ -75,7 +76,6 @@
     </footer>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../assets/JS/searchMovie.js"></script>

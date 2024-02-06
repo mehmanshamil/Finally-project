@@ -60,3 +60,23 @@ body {
     text-align: center;
     font-weight: 600;
 }
+@media only screen and (max-width: 767px) {
+    #srcMovieSec .container #srcMovie button {
+        width: 90px;
+    }
+#movies .container #moviesProducts{
+    justify-content: center;
+}
+#srcMovieSec .container #srcMovie{
+    width: 90%;
+    margin: 0 auto;
+}
+#srcMovieSec .container #srcMovie input{
+    width: 100%;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #movies .container #moviesProducts{
+        justify-content: center;
+    }
+}

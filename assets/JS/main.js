@@ -9,6 +9,25 @@ document.addEventListener("scroll", () => {
         header.classList.remove("headerFix")
     }
 })
+function addToWish(id, element) {
+    let wish = JSON.parse(localStorage.getItem("wish")) || [];
+    let wishItem = wish.find((item) => item.id == id);
+
+    if (wishItem) {
+        wishAlert.style.display = "block";
+        setInterval(() => {
+            wishAlert.style.display = "none";
+        }, 5000);
+    } else {
+        element.classList.remove("fa-regular");
+        element.classList.add("fa-solid");
+        element.style.color = "yellow"
+        wish.push(db.find((item) => item.id == id));
+        localStorage.setItem("wish", JSON.stringify(wish));
+    }
+    wishLengthFunc();
+    wishlistGet();
+}
 function wishLengthFunc() {
     let wish = JSON.parse(localStorage.getItem("wish")) || [];
     wishLengtH.innerHTML = wish.length
@@ -102,10 +121,14 @@ async function getUserName(id) {
          </div>
          <span>Welcome ! </span>
         `
-        user.appendChild(div)
-        setTimeout(() => {
-            user.removeChild(div)
-        }, 3500)
+        let currentPage = window.location.href;
+        if (currentPage.includes("detaillMovie.html")) {
+        } else {
+            user.appendChild(div)
+            setTimeout(() => {
+                user.removeChild(div)
+            }, 3500)
+        }
 
     } else {
         window.location.href = "/";
@@ -178,5 +201,47 @@ function saveChanges(id) {
             getUserName(id)
             closedSetting();
             console.log(data);
-     })
+        })
+}
+document.getElementById("menuList").addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let userid = new URLSearchParams(window.location.search).get('userId');
+
+    if (event.target.id === "homePage" || event.target.parentNode.id === "homePage") {
+        if (userid) {
+            window.location.href = `../../index.html?userId=${userid}`;
+        } else {
+            window.location.href = "/"
+        }
+    } else if (event.target.id === "addList" || event.target.parentNode.id === "addList") {
+        if (userid) {
+            window.location.href = `./assets/Page/addList.html?userId=${userid}`;
+        } else {
+            window.location.href = "../../assets/Page/addList.html"
+        }
+    } else {
+        window.location.href = "/"
+    }
+});
+
+let burgerIcon = document.getElementById("burgerIcon");
+burgerIcon.addEventListener("click", menuBurgerGet);
+let handlee = true;
+let addlist = document.querySelector(".add-list")
+let nav = document.querySelector("nav")
+function menuBurgerGet() {
+
+    if (handle) {
+        addlist.style.display = "flex"
+        nav.style.display = "flex"
+        // addlist.style.animation="menuAnime 2s ease forwards"
+        // nav.style.animation="menuAnime 2s ease forwards"
+    } else {
+        addlist.style.display = "none"
+        nav.style.display = "none"
+        // addlist.style.animation="menuAnimeHide 2s ease forwards"
+        // nav.style.animation="menuAnimeHide 2s ease forwards"
+    }
+    handle = !handle
 }

@@ -10,7 +10,8 @@ body {
     background-color: black;
     color: #fff;
     position: relative;
-    #payment{
+
+    #payment {
         width: 30%;
         margin: 0 auto;
         text-align: center;
@@ -28,14 +29,16 @@ body {
         display: none;
         flex-direction: column;
         justify-content: center;
-        .moneyAlert{
+
+        .moneyAlert {
             width: 100%;
             height: 100%;
             display: flex;
             align-items: center;
             color: red;
         }
-        #closePayment{
+
+        #closePayment {
             position: absolute;
             top: 0;
             right: 0;
@@ -52,39 +55,46 @@ body {
             border: 2px solid #fff;
             cursor: pointer;
             transition: .5s;
-            &:hover{
-            border: 2px solid #f6be00;
+
+            &:hover {
+                border: 2px solid #f6be00;
                 color: #000;
                 background-color: #f6be00;
             }
         }
-        .buttons{
+
+        .buttons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 25px;
-            button{
-                transition:1s;
+
+            button {
+                transition: 1s;
                 padding: 5px 20px;
                 border-radius: 10px;
-                margin-top:1rem;
+                margin-top: 1rem;
                 font-weight: 600;
             }
-            .yes{
+
+            .yes {
                 background-color: #f6be00;
                 color: #000;
                 border: 1px solid black;
-                &:hover{
+
+                &:hover {
                     color: #f6be00;
                     background-color: #000;
                     border: 1px solid #f6be00;
                 }
             }
-            .no{
+
+            .no {
                 background-color: #000;
                 color: #f6be00;
-                border: 1px solid  #f6be00;
-                &:hover{
+                border: 1px solid #f6be00;
+
+                &:hover {
                     color: #000;
                     background-color: #f6be00;
                     border: 1px solid #000;
@@ -93,17 +103,20 @@ body {
         }
 
     }
-    #watch{
+
+    #watch {
         width: 100%;
         display: flex;
         justify-content: center;
     }
+
     #popup-container {
         position: absolute;
         top: 14rem;
         z-index: 999;
         display: none;
         justify-content: center;
+
         #closed {
             width: 2.5rem;
             height: 2.5rem;
@@ -136,7 +149,7 @@ body {
         background-color: red;
         width: 20rem;
 
-       
+
         iframe {
             position: absolute;
             top: 0;
@@ -167,9 +180,11 @@ body {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                .fa-thumbs-up{
+
+                .fa-thumbs-up {
                     color: #f6be00;
                 }
+
                 h2 {
                     font-weight: bold;
                     font-size: 2.5rem;
@@ -276,5 +291,40 @@ body {
                 font-size: 1.2rem;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #moviePlayer #payment {
+    left: 15%;
+    width: 70%;
+    z-index: 9999;
+    }
+    #moviePlayer #popup-container {
+        width: 100%;
+    }
+    #moviePlayer .container .content .informationMovie h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    }
+    #moviePlayer .container img {
+        height: 55rem;
+    }
+    #moviePlayer .container .content{
+        height: auto !important;
+    }
+
+    header .container nav ul {
+        justify-content: flex-start;
+    }
+
+    #moviePlayer .container .content .informationMovie {
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .topTrend #categoryTrend .swipperSlide {
+    width: 300px !important;
     }
 }

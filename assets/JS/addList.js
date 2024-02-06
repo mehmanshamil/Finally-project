@@ -33,5 +33,5 @@ function removeSaveAdd(index) {
 }
 // get Movie Product
 function getMovie(id) {
-    window.location.href = `../../assets/Page/detaillMovie.html?id=${id}`;
+    window.location.href = `../../assets/Page/detaillMovie.html?movieId=${id}`;
 }

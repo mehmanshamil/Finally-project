@@ -533,3 +533,125 @@ header {
         transform: translateY(0);
     }
 }
+
+@keyframes menuAnime {
+    from {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes menuAnimeHide {
+    from {
+        transform: translatex(0);
+        opacity: 1;
+    }
+    to {
+        transform: translatex(-200px);
+        opacity: 0;
+    }
+}
+
+// #burgerIcon{
+
+// }
+@media only screen and (max-width: 767px) {
+    header #settAcc img {
+        width: 10rem;
+        height: 10rem;
+    }
+    header #settAcc .contentSet {
+        width: 100%;
+    }
+    header #settAcc{
+        width: 95.7%;
+        align-items: flex-start;
+    }
+    header #settAcc #SettingsChange{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header #settAcc .image input{
+        margin: 1rem 0;
+        width: 100%;
+    }
+    header .profileUser img{
+        width: 2rem !important;
+    }
+    header .container .logo img{
+        width: 5rem;
+    }
+    #hero .container{
+        height: auto;
+    }
+    #hero .container .content h1{
+        font-size: 2rem !important;
+    }
+    #hero .container .content .raiting{
+        flex-wrap: wrap;
+    }
+    header .container .logo .welcome{
+        width: 80%;
+    }
+    .menBurger{
+        width: 100%;
+    }
+    header .container nav{
+        background-color: black;
+        position: absolute;
+        left: 0;
+        top: 4.5rem;
+        display: none;
+        width: 70%;
+        height: 100vh;
+        z-index: 999;
+        border: 1px solid #f6be00;
+        border-radius: 10px;
+        animation: menuAnime 1s ease forwards;
+    }
+    #burgerIcon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 9999;
+        margin: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+        border-radius: 10px;
+        background-color: black;
+        &:hover{
+            color: #fff;
+        }
+    }
+    header .container nav ul{
+        padding-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 90%;
+    }
+    header .container .add-list{
+        position: absolute;
+        left: 0;
+        z-index: 9999;
+        top: 16rem;
+        animation: menuAnime 1s ease forwards;
+
+        gap: 20px;
+        display: none;
+        margin-left: 1.5rem;
+        // gap: 10px;
+        // justify-content: end;
+    }
+}
+  
+  /* Tablets */

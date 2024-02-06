@@ -66,7 +66,7 @@ function addToWish(id, element) {
         localStorage.setItem("wish", JSON.stringify(wish));
     }
     wishLengthFunc();
-    wishlistGet();
+    // wishlistGet();
 }
 
 trendGet();
@@ -192,39 +192,7 @@ async function getMoviePlays(url, price) {
         }
     });
 }
-async function getUserName(id) {
-    let user = document.querySelector(".logo");
-    let profileUser = document.querySelector(".profileUser");
-    let account = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`)
-    let myAccount = account.data;
-    if (account) {
-        profileUser.innerHTML = `
-        <img src="${myAccount.image}" alt="user photo">
-        <span><i class="fa-solid mx-1 fa-wallet"></i> ${myAccount.money}$</span>
-        <div class="accountSettinngs">
-        <span onclick="getMySettings(${myAccount.id})" class="d-flex gap-2"> <i class="fa-solid fa-gear fa-spin"></i> Settings </span>
-        <span onclick="logOut()" class="logOut gap-2"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</span>
-        </div>
-        `
-        let div = document.createElement("div");
-        div.className = "welcome"
-        div.innerHTML = ''
-        div.innerHTML = `
-         <div class="userNameAcc">
-         <img src="${myAccount.image}" alt="image">
-         <span> ${myAccount.userName}</span>
-         </div>
-         <span>Welcome ! </span>
-        `
-        user.appendChild(div)
-        setTimeout(() => {
-            user.removeChild(div)
-        }, 3500)
 
-    } else {
-        window.location.href = "/";
-    }
-}
 function updatedMoney(money, userid) {
     let data = {
         money: money
@@ -253,4 +221,42 @@ function closeVideo() {
     const videoIframe = popupContainer.querySelector('iframe');
     videoIframe.src = '';
     popupContainer.style.display = 'none';
+}
+
+let srcPage = document.getElementById("srcPage");
+srcPage.addEventListener("click", getSrc);
+function getSrc(e) {
+    e.preventDefault();
+    let userid = new URLSearchParams(window.location.search).get('userId');
+    if (userid) {
+        window.location.href = `../../assets/Page/searchMovie.html?userId=${userid}`
+    } else {
+        window.location.href = `../../assets/Page/searchMovie.html`
+    }
+}
+let addLis = document.getElementById("addlis");
+addLis.addEventListener('click', getAddToList)
+
+function getAddToList(e) {
+    e.preventDefault();
+    let userid = new URLSearchParams(window.location.search).get('userId');
+    if (userid) {
+        window.location.href = `../../assets/Page/addList.html?userId=${userid}`;
+    } else {
+        window.location.href = "/"
+    }
+}
+let homePage = document.getElementById("homePage");
+let movieGet = document.getElementById("movieGet");
+movieGet.addEventListener("click", getIndexToList);
+homePage.addEventListener('click', getIndexToList);
+
+function getIndexToList(e) {
+    e.preventDefault();
+    let userid = new URLSearchParams(window.location.search).get('userId');
+    if (userid) {
+        window.location.href = `../../index.html?userId=${userid}`;
+    } else {
+        window.location.href = "/"
+    }
 }

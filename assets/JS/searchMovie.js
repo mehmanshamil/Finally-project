@@ -44,7 +44,7 @@ function display(data) {
         div.innerHTML = `
             <img src="${item.image}" alt="${item.title}">
             <div class="detailInfo">
-                <i onclick="addToWish(${item.id})" class="fa-regular wish fa-heart"></i>
+                <i onclick="addToWish(${item.id},this)" class="fa-regular wish fa-heart"></i>
                 <div class="content">
                     <div class="detailContent">
                         <p><a onclick="getMovieLocation(${item.id})">${item.title}</a></p>
@@ -69,3 +69,4 @@ function getMovieLocation(movieid) {
         window.location.href = `../../assets/Page/detaillMovie.html?movieId=${movieid}`
     }
 }
+

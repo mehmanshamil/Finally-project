@@ -82,3 +82,12 @@
         }
     }
 }
+@media only screen and (max-width: 767px) {
+    #addSec .container #addSaveList .addBox{
+        flex-wrap: wrap;
+    }
+    #addSec .container #addSaveList .addBox img {
+    width: 100%;
+    }
+
+}

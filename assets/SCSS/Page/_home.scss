@@ -778,7 +778,9 @@ footer {
 ::-webkit-scrollbar-thumb {
     background-color: #f6be00;
 }
-
+#burgerIcon{
+    display: none;
+}
 
 
 @keyframes animePlay {
@@ -790,5 +792,54 @@ footer {
     to {
         transform: scale(1.5);
         opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #category .container .head h2{
+        font-size: 25px;
+    }
+    #movies .container .head h2{
+        font-size: 25px;
+    }
+    #category .container #content{
+        justify-content: center;
+    }
+    #category{
+        height: auto !important;
+    }
+    #category .container{
+        height: auto !important;
+    }
+    .topTrend #categoryTrend .swipperSlide{
+        width: 315px !important;
+    }
+    #trending .container .head h2 {
+        font-size: 25px !important;
+    }
+    #hero .container .content{
+        width: 75% !important;
+    }
+    #hero::before{
+        content: "";
+        display: none;
+    }
+    #hero .container{
+        height: auto !important;
+    }
+    #hero{
+        height: auto !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #category {
+        height: auto !important;
+    } 
+    #category .container{
+        height: auto !important;
+    }
+    header .container nav ul {
+        width: 85%;
     }
 }

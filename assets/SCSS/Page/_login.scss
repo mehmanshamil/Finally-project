@@ -90,3 +90,13 @@
         }
     }
 }
+@media only screen and (max-width: 767px) {
+    header .container .add-list .wishHead .wish{
+        width: 18rem;
+        left: -6rem;
+        top: 2.5rem;
+    }
+    #loginSec .container #loginGet{
+        width: 100%;
+    }
+}

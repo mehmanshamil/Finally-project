@@ -423,6 +423,117 @@ header .container i:hover {
     transform: translateY(0);
   }
 }
+@keyframes menuAnime {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes menuAnimeHide {
+  from {
+    transform: translatex(0);
+    opacity: 1;
+  }
+  to {
+    transform: translatex(-200px);
+    opacity: 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  header #settAcc img {
+    width: 10rem;
+    height: 10rem;
+  }
+  header #settAcc .contentSet {
+    width: 100%;
+  }
+  header #settAcc {
+    width: 95.7%;
+    align-items: flex-start;
+  }
+  header #settAcc #SettingsChange {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  header #settAcc .image input {
+    margin: 1rem 0;
+    width: 100%;
+  }
+  header .profileUser img {
+    width: 2rem !important;
+  }
+  header .container .logo img {
+    width: 5rem;
+  }
+  #hero .container {
+    height: auto;
+  }
+  #hero .container .content h1 {
+    font-size: 2rem !important;
+  }
+  #hero .container .content .raiting {
+    flex-wrap: wrap;
+  }
+  header .container .logo .welcome {
+    width: 80%;
+  }
+  .menBurger {
+    width: 100%;
+  }
+  header .container nav {
+    background-color: black;
+    position: absolute;
+    left: 0;
+    top: 4.5rem;
+    display: none;
+    width: 70%;
+    height: 100vh;
+    z-index: 999;
+    border: 1px solid #f6be00;
+    border-radius: 10px;
+    animation: menuAnime 1s ease forwards;
+  }
+  #burgerIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    margin: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    background-color: black;
+  }
+  #burgerIcon:hover {
+    color: #fff;
+  }
+  header .container nav ul {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 90%;
+  }
+  header .container .add-list {
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+    top: 16rem;
+    animation: menuAnime 1s ease forwards;
+    gap: 20px;
+    display: none;
+    margin-left: 1.5rem;
+  }
+}
+/* Tablets */
 body {
   height: 100vh;
   display: flex;
@@ -673,6 +784,37 @@ body {
   font-size: 1.2rem;
 }
 
+@media only screen and (max-width: 767px) {
+  #moviePlayer #payment {
+    left: 15%;
+    width: 70%;
+    z-index: 9999;
+  }
+  #moviePlayer #popup-container {
+    width: 100%;
+  }
+  #moviePlayer .container .content .informationMovie h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  #moviePlayer .container img {
+    height: 55rem;
+  }
+  #moviePlayer .container .content {
+    height: auto !important;
+  }
+  header .container nav ul {
+    justify-content: flex-start;
+  }
+  #moviePlayer .container .content .informationMovie {
+    width: 95%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .topTrend #categoryTrend .swipperSlide {
+    width: 300px !important;
+  }
+}
 #srcMovieSec {
   background-color: black;
   width: 100%;
@@ -730,6 +872,26 @@ body {
   font-weight: 600;
 }
 
+@media only screen and (max-width: 767px) {
+  #srcMovieSec .container #srcMovie button {
+    width: 90px;
+  }
+  #movies .container #moviesProducts {
+    justify-content: center;
+  }
+  #srcMovieSec .container #srcMovie {
+    width: 90%;
+    margin: 0 auto;
+  }
+  #srcMovieSec .container #srcMovie input {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #movies .container #moviesProducts {
+    justify-content: center;
+  }
+}
 #loginSec .container {
   color: #fff;
   background-color: rgb(11, 11, 13);
@@ -814,6 +976,16 @@ body {
   text-decoration: none !important;
 }
 
+@media only screen and (max-width: 767px) {
+  header .container .add-list .wishHead .wish {
+    width: 18rem;
+    left: -6rem;
+    top: 2.5rem;
+  }
+  #loginSec .container #loginGet {
+    width: 100%;
+  }
+}
 #addSec .container h2 {
   text-align: center;
   color: #fff;
@@ -880,6 +1052,14 @@ body {
   color: #f6be00;
 }
 
+@media only screen and (max-width: 767px) {
+  #addSec .container #addSaveList .addBox {
+    flex-wrap: wrap;
+  }
+  #addSec .container #addSaveList .addBox img {
+    width: 100%;
+  }
+}
 * {
   list-style-type: none;
   text-decoration: none !important;
@@ -1525,6 +1705,10 @@ footer p {
   background-color: #f6be00;
 }
 
+#burgerIcon {
+  display: none;
+}
+
 @keyframes animePlay {
   from {
     transform: scale(1);
@@ -1533,5 +1717,52 @@ footer p {
   to {
     transform: scale(1.5);
     opacity: 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #category .container .head h2 {
+    font-size: 25px;
+  }
+  #movies .container .head h2 {
+    font-size: 25px;
+  }
+  #category .container #content {
+    justify-content: center;
+  }
+  #category {
+    height: auto !important;
+  }
+  #category .container {
+    height: auto !important;
+  }
+  .topTrend #categoryTrend .swipperSlide {
+    width: 315px !important;
+  }
+  #trending .container .head h2 {
+    font-size: 25px !important;
+  }
+  #hero .container .content {
+    width: 75% !important;
+  }
+  #hero::before {
+    content: "";
+    display: none;
+  }
+  #hero .container {
+    height: auto !important;
+  }
+  #hero {
+    height: auto !important;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #category {
+    height: auto !important;
+  }
+  #category .container {
+    height: auto !important;
+  }
+  header .container nav ul {
+    width: 85%;
   }
 }
