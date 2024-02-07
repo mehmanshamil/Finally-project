@@ -122,12 +122,11 @@ async function getUserName(id) {
          <span>Welcome ! </span>
         `
         let currentPage = window.location.href;
-        if (currentPage.includes("detaillMovie.html")) {
-        } else {
-            user.appendChild(div)
+        if (!currentPage.includes("detaillMovie.html") && !currentPage.includes("searchMovie.html")) {
+            user.appendChild(div);
             setTimeout(() => {
-                user.removeChild(div)
-            }, 3500)
+                user.removeChild(div);
+            }, 3500);
         }
 
     } else {
@@ -203,20 +202,28 @@ function saveChanges(id) {
             console.log(data);
         })
 }
+
 document.getElementById("menuList").addEventListener("click", function (event) {
     event.preventDefault();
 
     let userid = new URLSearchParams(window.location.search).get('userId');
 
-    if (event.target.id === "homePage" || event.target.parentNode.id === "homePage") {
+    if (event.target.id === "homePage" || event.target.parentNode.id === "homePage" ) {
         if (userid) {
             window.location.href = `../../index.html?userId=${userid}`;
         } else {
             window.location.href = "/"
         }
-    } else if (event.target.id === "addList" || event.target.parentNode.id === "addList") {
+    }else if (event.target.id === "movieGet" || event.target.parentNode.id === "movieGet") {
         if (userid) {
-            window.location.href = `./assets/Page/addList.html?userId=${userid}`;
+            window.location.href = `../../index.html?userId=${userid}/#movies`;
+        } else {
+            window.location.href =`/#movies`;
+        }
+    } 
+     else if (event.target.id === "addList" || event.target.parentNode.id === "addList") {
+        if (userid) {
+            window.location.href = `../../assets/Page/addList.html?userId=${userid}`;
         } else {
             window.location.href = "../../assets/Page/addList.html"
         }

@@ -812,7 +812,8 @@ footer {
         height: auto !important;
     }
     .topTrend #categoryTrend .swipperSlide{
-        width: 315px !important;
+        width: 280px !important;
+        height: 280px;
     }
     #trending .container .head h2 {
         font-size: 25px !important;
@@ -826,9 +827,14 @@ footer {
     }
     #hero .container{
         height: auto !important;
+        background-position: center;
     }
     #hero{
         height: auto !important;
+    }
+    #hero .container .content .buttons button {
+    width: 142px;
+    height: 2.5rem;
     }
 }
 
@@ -842,4 +848,5 @@ footer {
     header .container nav ul {
         width: 85%;
     }
+  
 }

@@ -246,6 +246,7 @@ function getAddToList(e) {
         window.location.href = "/"
     }
 }
+
 let homePage = document.getElementById("homePage");
 let movieGet = document.getElementById("movieGet");
 movieGet.addEventListener("click", getIndexToList);

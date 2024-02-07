@@ -9,6 +9,49 @@ body {
   background-color: #F5F2EC;
 }
 
+#detailInformation {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+}
+#detailInformation .information {
+  width: 30%;
+  background-color: #fff;
+  padding: 20px;
+  position: relative;
+  z-index: 9;
+}
+#detailInformation .information #closed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+  border: 1px solid #fff;
+  transition: 1s;
+  cursor: pointer;
+}
+#detailInformation .information #closed:hover {
+  background-color: #fff;
+  color: red;
+  border: 1px solid red;
+}
+#detailInformation .information form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 25rem;
+}
+
 #commond {
   display: flex;
   gap: 25px;
@@ -17,14 +60,20 @@ body {
   background-color: #fff;
   overflow: hidden;
   min-height: 46.1rem;
+  position: absolute;
+  left: 0;
   padding: 20px;
   border-radius: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
   transition: 1s;
 }
 #commond .commondPanel:hover li {
+  width: 10rem;
+}
+#commond .commondPanel:hover .logout {
   width: 10rem;
 }
 #commond .commondPanel nav {
@@ -54,16 +103,45 @@ body {
   font-size: 1.5rem;
   margin-right: 1rem;
 }
-#commond .commondPanel nav ul li img {
-  width: 2rem;
-  height: 2rem;
-  object-fit: cover;
-  margin-right: 0.7rem;
+#commond .commondPanel .logout {
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 10px;
+  transition: 1s;
+  width: 3rem;
+  display: flex;
+  overflow: hidden;
+}
+#commond .commondPanel .logout a {
+  color: black;
+  text-decoration: none;
+}
+#commond .commondPanel .logout:hover {
+  color: #fff;
+  background-color: red;
+  width: 10rem;
+}
+#commond .commondPanel .logout:hover a {
+  color: #fff !important;
+}
+#commond .commondPanel .logout i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
 }
 #commond #display {
   width: 100%;
+  height: 46rem;
+  overflow: scroll;
 }
-#commond #display h4 {
+#commond #display .adminText {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#commond #display .adminText h4 {
+  width: 72%;
+  font-weight: bold;
   margin-top: 1.7rem;
 }
 #commond #display #content {

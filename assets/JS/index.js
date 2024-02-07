@@ -143,13 +143,13 @@ function getMovieLocation(movieid) {
     }
 }
 let srcPage = document.getElementById("srcPage");
-srcPage.addEventListener("click",getSrc);
-function getSrc(e){
+srcPage.addEventListener("click", getSrc);
+function getSrc(e) {
     e.preventDefault();
     let userid = new URLSearchParams(window.location.search).get('userId');
-    if(userid){
-        window.location.href=`./assets/Page/searchMovie.html?userId=${userid}`
-    }else{
-        window.location.href=`./assets/Page/searchMovie.html`
+    if (userid) {
+        window.location.href = `./assets/Page/searchMovie.html?userId=${userid}`
+    } else {
+        window.location.href = `./assets/Page/searchMovie.html`
     }
 }
