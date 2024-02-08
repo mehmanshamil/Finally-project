@@ -62,6 +62,48 @@
                     <input required id="movieNameVal" placeholder="Please Movie Name..." type="text">
                     <button><i class="fa-solid fa-magnifying-glass fa-beat-fade"></i>Search</button>
                 </form>
+                <div class="filterSec">
+                    <button id="filter">Filter
+                        <svg id="filterIcon" width="46" height="46" fill="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.125 7.875H1.875a1.125 1.125 0 0 1 0-2.25h20.25a1.125 1.125 0 0 1 0 2.25Z">
+                            </path>
+                            <path d="M18.375 13.125H5.625a1.125 1.125 0 1 1 0-2.25h12.75a1.125 1.125 0 1 1 0 2.25Z">
+                            </path>
+                            <path d="M13.875 18.375h-3.75a1.125 1.125 0 1 1 0-2.25h3.75a1.125 1.125 0 1 1 0 2.25Z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="content">
+                        <div class="groupFilter">
+                            <div class="choose">
+                                <label for="PriceHighToLow">From expensive to cheap</label>
+                                <input name="filtered" id="PriceHighToLow" type="radio">
+                            </div>
+                            <div class="choose">
+                                <label for="PriceLowToHigh">from cheap to expensive</label>
+                                <input name="filtered" id="PriceLowToHigh" type="radio">
+                            </div>
+                        </div>
+                        <div class="groupFilter">
+
+                            <div class="choose">
+                                <label for="AlphabeticalAscending">A to z</label>
+                                <input name="filtered" id="AlphabeticalAscending" type="radio">
+                            </div>
+                            <div class="choose">
+                                <label for="AlphabeticalDescending">Z to a</label>
+                                <input name="filtered" id="AlphabeticalDescending" type="radio">
+                            </div>
+                        </div>
+
+                        <div class="choose">
+                            <label for="default">Default</label>
+                            <input name="filtered" id="default" type="radio">
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
         <section id="movies" class="movSec">

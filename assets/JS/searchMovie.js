@@ -11,7 +11,7 @@ async function moviesGet() {
         const response = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/products`);
         db = response.data;
         display(db)
-         loading = false;
+        loading = false;
         if (!loading) {
             movieAnime.style.display = "none"
         }
@@ -45,9 +45,102 @@ async function searchMovie(e) {
         .catch((err) => console.log(err))
 
 }
+// Sort
+let PriceHighToLow = document.getElementById("PriceHighToLow");
+let PriceLowToHigh = document.getElementById("PriceLowToHigh");
+let AlphabeticalAscending = document.getElementById("AlphabeticalAscending");
+let AlphabeticalDescending = document.getElementById("AlphabeticalDescending");
+let defaultt = document.getElementById("default");
+
+let inputs = [
+    PriceHighToLow,
+    PriceLowToHigh,
+    AlphabeticalAscending,
+    AlphabeticalDescending,
+    defaultt
+];
+
+function showOnly(inputToShow) {
+    inputs.forEach(input => {
+        if (input === inputToShow) {
+            input.style.display = "block";
+            input.classList.add("active")
+        } else {
+            input.style.display = "none";
+        }
+    });
+}
+
+PriceHighToLow.addEventListener("click", () => getExpencive());
+PriceLowToHigh.addEventListener("click", () => getCheap());
+AlphabeticalAscending.addEventListener("click", () => alphanetAfromz());
+AlphabeticalDescending.addEventListener("click", () => alphanetZfroma());
+defaultt.addEventListener("click", () => moviesGet());
+
+async function getExpencive() {
+    await axios.get("https://65b7689c46324d531d548041.mockapi.io/products")
+    .then((res) =>{
+        db = res.data;
+        let data = db.sort((a,b) => b.price - a.price);
+        showOnly(PriceHighToLow); 
+        display(data);
+    })
+    .catch((err) => console.log(err))
+}
+
+async function getCheap() {
+    await axios.get("https://65b7689c46324d531d548041.mockapi.io/products")
+    .then((res) =>{
+        db = res.data;
+        let data = db.sort((a,b) => a.price - b.price);
+        showOnly(PriceLowToHigh); 
+        display(data);
+    })
+    .catch((err) => console.log(err))
+}
+
+async function alphanetAfromz() {
+    await axios.get("https://65b7689c46324d531d548041.mockapi.io/products")
+    .then((res) =>{
+        db = res.data;
+        let data = db.sort((a,b) => a.title.localeCompare(b.title));
+        showOnly(AlphabeticalAscending); 
+        display(data);
+    })
+    .catch((err) => console.log(err))
+}
+
+async function alphanetZfroma() {
+    await axios.get("https://65b7689c46324d531d548041.mockapi.io/products")
+    .then((res) =>{
+        db = res.data;
+        let data = db.sort((a,b) => b.title.localeCompare(a.title));
+        showOnly(AlphabeticalDescending); 
+        display(data);
+    })
+    .catch((err) => console.log(err))
+}
+
+let filter = document.getElementById("filter");
+let filterIcon = document.getElementById("filterIcon");
+filter.addEventListener("click", filterOpern);
+let content = document.querySelector(".content");
+let access = true;
+function filterOpern() {
+    if (access) {
+        filterIcon.style.rotate="180deg"
+        filterIcon.style.transition="1s"
+        content.style.display = "flex"
+    } else {
+        filterIcon.style.rotate="0deg"
+        content.style.display = "none"
+    }
+    access = !access
+
+}
 
 function display(data) {
-    moviesProducts.innerHTML=''
+    moviesProducts.innerHTML = ''
     data.forEach((item) => {
         let div = document.createElement("div");
         div.className = "moiveProBox";

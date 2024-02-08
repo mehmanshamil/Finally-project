@@ -561,6 +561,9 @@ header {
 
 // }
 @media only screen and (max-width: 767px) {
+    header .container .add-list .wishHead .wish{
+        width: 16.5rem !important;
+    }
     header #settAcc img {
         width: 10rem;
         height: 10rem;
@@ -605,7 +608,7 @@ header {
         background-color: black;
         position: absolute;
         left: 0;
-        top: 4rem;
+        top: 3.6rem;
         display: none;
         width: 70%;
         height: 100vh;
@@ -645,10 +648,14 @@ header {
         z-index: 9999;
         top: 16rem;
         animation: menuAnime 1s ease forwards;
-
         gap: 20px;
         display: none;
         margin-left: 1.5rem;
+        i{
+            &:hover{
+                color: #fff;
+            }
+        }
         // gap: 10px;
         // justify-content: end;
     }

@@ -796,6 +796,9 @@ footer {
 }
 
 @media only screen and (max-width: 767px) {
+    #movies .container .head p{
+        text-align: center;
+    }
     #category .container .head h2{
         font-size: 25px;
     }

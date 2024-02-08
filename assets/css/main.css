@@ -444,6 +444,9 @@ header .container i:hover {
   }
 }
 @media only screen and (max-width: 767px) {
+  header .container .add-list .wishHead .wish {
+    width: 16.5rem !important;
+  }
   header #settAcc img {
     width: 10rem;
     height: 10rem;
@@ -488,7 +491,7 @@ header .container i:hover {
     background-color: black;
     position: absolute;
     left: 0;
-    top: 4rem;
+    top: 3.6rem;
     display: none;
     width: 70%;
     height: 100vh;
@@ -531,6 +534,9 @@ header .container i:hover {
     gap: 20px;
     display: none;
     margin-left: 1.5rem;
+  }
+  header .container .add-list i:hover {
+    color: #fff;
   }
 }
 /* Tablets */
@@ -865,6 +871,65 @@ body {
   align-items: center;
   padding: 1rem 0;
 }
+#srcMovieSec .container .filterSec {
+  width: 78%;
+  margin: 1rem 0;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+#srcMovieSec .container .filterSec button {
+  border-radius: 10px;
+  background-color: #f6be00;
+  color: black;
+  font-weight: 600;
+  border: 1px solid #f6be00;
+}
+#srcMovieSec .container .filterSec button:hover {
+  background-color: black;
+  color: #f6be00;
+}
+#srcMovieSec .container .filterSec .content {
+  align-self: flex-start;
+  display: none;
+  flex-wrap: wrap;
+  animation: filterAnimer 1.5s forwards;
+  gap: 1rem;
+}
+#srcMovieSec .container .filterSec .content input,
+#srcMovieSec .container .filterSec .content label {
+  cursor: pointer;
+}
+#srcMovieSec .container .filterSec .content .choose {
+  width: 15rem;
+  border: 1px solid #f6be00;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 1rem 0;
+  gap: 10px;
+  height: 45.6px !important;
+  height: auto;
+  border-radius: 10px;
+  transition: 1s;
+}
+#srcMovieSec .container .filterSec .content .choose:hover {
+  box-shadow: 0px 2px 20px 0.2px #f6be00;
+}
+#srcMovieSec .container .filterSec .content .choose .active:after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #f6be00;
+  position: absolute;
+  border-radius: 50%;
+  top: 3px;
+}
+#srcMovieSec .container .filterSec .content .choose input {
+  position: relative;
+  display: none;
+}
 #srcMovieSec .container #srcMovie {
   position: relative;
 }
@@ -912,7 +977,21 @@ body {
   font-weight: 600;
 }
 
+@keyframes filterAnimer {
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 @media only screen and (max-width: 767px) {
+  #srcMovieSec .container .filterSec .content {
+    gap: 0;
+    justify-content: center;
+  }
   #srcMovieSec .container #srcMovie button {
     width: 90px;
   }
@@ -926,8 +1005,12 @@ body {
   #srcMovieSec .container #srcMovie input {
     width: 100%;
   }
+  #movies {
+    padding: 0 !important;
+  }
   #movieAnime {
-    height: 32rem;
+    height: 39rem;
+    width: 100%;
   }
   #movieAnime img {
     width: 15rem;
@@ -1767,6 +1850,9 @@ footer p {
   }
 }
 @media only screen and (max-width: 767px) {
+  #movies .container .head p {
+    text-align: center;
+  }
   #category .container .head h2 {
     font-size: 25px;
   }
