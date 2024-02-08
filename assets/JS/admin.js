@@ -39,7 +39,7 @@ function display(data){
             <td>${item.userName}</td>
             <td>${item.email}</td>
             <td>${item.money} $</td>
-            <td><i <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i><button onclick="deleteUser(${item.id})" ><i class="fa-solid fa-trash"></i> Delete </button></td>
+            <td><i <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i><button onclick="deleteAndUpdateUser(${item.id})" ><i class="fa-solid fa-trash"></i> Delete </button></td>
         `;
         tbody.appendChild(tr);
     });

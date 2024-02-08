@@ -11,9 +11,9 @@ login.addEventListener("submit", async (e) => {
         let db = res.data;
         let found = false;
         db.forEach((item) => {
-            if (password.value == item.password && username.value == item.userName || username.value == item.email) {
+            if (password.value === item.password && username.value === item.userName || username.value === item.email) {
                 found = true;
-                if (item.userName.includes("admin") && item.password == password.value) {
+                if (item.userName.includes("admin") && item.password === password.value) {
                     window.location.href = `../../assets/Page/adminPage.html`
                 } else {
                     userLogin(item.id)
