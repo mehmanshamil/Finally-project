@@ -1,10 +1,20 @@
 let moviesProducts = document.getElementById("moviesProducts");
 // const db = [];
+let movieAnime = document.getElementById("movieAnime")
+
 async function moviesGet() {
+    let loading = true;
+    if (loading) {
+        movieAnime.style.display = "flex"
+    }
     try {
         const response = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/products`);
         db = response.data;
         display(db)
+         loading = false;
+        if (!loading) {
+            movieAnime.style.display = "none"
+        }
     } catch (err) {
         console.log(err);
     }

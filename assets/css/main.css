@@ -547,6 +547,22 @@ body {
   color: #fff;
   position: relative;
 }
+#moviePlayer #movieAnime {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+}
+#moviePlayer #movieAnime img {
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+}
 #moviePlayer #payment {
   width: 30%;
   margin: 0 auto;
@@ -809,12 +825,36 @@ body {
   #moviePlayer .container .content .informationMovie {
     width: 95%;
   }
+  #moviePlayer #movieAnime img {
+    width: 15rem;
+    height: 15rem;
+  }
+  #moviePlayer #movieAnime {
+    height: 15rem;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .topTrend #categoryTrend .swipperSlide {
     width: 300px !important;
   }
 }
+#movieAnime {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  width: 98%;
+  display: none;
+  justify-content: center;
+  align-items: end;
+  height: 42rem;
+}
+#movieAnime img {
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+}
+
 #srcMovieSec {
   background-color: black;
   width: 100%;
@@ -885,6 +925,13 @@ body {
   }
   #srcMovieSec .container #srcMovie input {
     width: 100%;
+  }
+  #movieAnime {
+    height: 32rem;
+  }
+  #movieAnime img {
+    width: 15rem;
+    height: 15rem;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {

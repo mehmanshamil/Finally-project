@@ -11,6 +11,24 @@ body {
     color: #fff;
     position: relative;
 
+    #movieAnime {
+        position: absolute;
+        z-index: 999;
+        top: 0;
+        width: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        height: 40rem;
+
+        img {
+            border-radius: 50%;
+            width: 20rem;
+            height: 20rem;
+            object-fit: cover;
+        }
+    }
+
     #payment {
         width: 30%;
         margin: 0 auto;
@@ -296,21 +314,25 @@ body {
 
 @media only screen and (max-width: 767px) {
     #moviePlayer #payment {
-    left: 15%;
-    width: 70%;
-    z-index: 9999;
+        left: 15%;
+        width: 70%;
+        z-index: 9999;
     }
+
     #moviePlayer #popup-container {
         width: 100%;
     }
+
     #moviePlayer .container .content .informationMovie h2 {
-    font-size: 2rem;
-    margin: 1rem 0;
+        font-size: 2rem;
+        margin: 1rem 0;
     }
+
     #moviePlayer .container img {
         height: 55rem;
     }
-    #moviePlayer .container .content{
+
+    #moviePlayer .container .content {
         height: auto !important;
     }
 
@@ -321,10 +343,17 @@ body {
     #moviePlayer .container .content .informationMovie {
         width: 95%;
     }
+    #moviePlayer #movieAnime img{
+        width: 15rem;
+        height: 15rem;
+    }
+    #moviePlayer #movieAnime {
+    height: 15rem;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .topTrend #categoryTrend .swipperSlide {
-    width: 300px !important;
+        width: 300px !important;
     }
 }

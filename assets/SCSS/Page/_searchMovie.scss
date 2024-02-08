@@ -1,3 +1,20 @@
+#movieAnime {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    width: 98%;
+    display: none;
+    justify-content: center;
+    align-items: end;
+    height: 42rem;
+
+    img {
+        border-radius: 50%;
+        width: 20rem;
+        height: 20rem;
+        object-fit: cover;
+    }
+}
 #srcMovieSec {
     background-color: black;
     width: 100%;
@@ -73,6 +90,13 @@ body {
 }
 #srcMovieSec .container #srcMovie input{
     width: 100%;
+}
+#movieAnime{
+    height: 32rem;
+}
+#movieAnime img{
+    width: 15rem;
+    height: 15rem;
 }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {

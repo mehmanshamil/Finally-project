@@ -80,14 +80,21 @@ function getMovieLocation(movieid) {
     }
 }
 
+let movieAnime = document.getElementById("movieAnime")
 
+console.log(movieAnime);
 async function getPlayerMovie() {
+    let loading = true;
+    if (loading) {
+        movieAnime.style.display = "flex"
+    }
     let descripText = document.getElementById("descripText");
     let movieDetal = document.getElementById("movieDetal");
     let id = new URLSearchParams(window.location.search).get('movieId');
     await axios.get("https://65b7689c46324d531d548041.mockapi.io/products")
         .then((res) => {
             db = res.data;
+
             let thisMovie = db.find(value => value.id == id);
             if (!thisMovie) {
                 window.location.href = "/";
@@ -113,6 +120,10 @@ async function getPlayerMovie() {
             </div>
             </div>
         `
+            let loading = false;
+            if (!loading) {
+                movieAnime.style.display = "none"
+            }
             descripText.textContent = thisMovie.description;
         })
         .catch(err => console.log(err))
@@ -234,18 +245,18 @@ function getSrc(e) {
         window.location.href = `../../assets/Page/searchMovie.html`
     }
 }
-let addLis = document.getElementById("addlis");
-addLis.addEventListener('click', getAddToList)
+// let addLis = document.getElementById("addlis");
+// addLis.addEventListener('click', getAddToList)
 
-function getAddToList(e) {
-    e.preventDefault();
-    let userid = new URLSearchParams(window.location.search).get('userId');
-    if (userid) {
-        window.location.href = `../../assets/Page/addList.html?userId=${userid}`;
-    } else {
-        window.location.href = "/"
-    }
-}
+// function getAddToList(e) {
+//     e.preventDefault();
+//     let userid = new URLSearchParams(window.location.search).get('userId');
+//     if (userid) {
+//         window.location.href = `../../assets/Page/addList.html?userId=${userid}`;
+//     } else {
+//         window.location.href = "/"
+//     }
+// }
 
 let homePage = document.getElementById("homePage");
 let movieGet = document.getElementById("movieGet");

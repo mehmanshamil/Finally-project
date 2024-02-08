@@ -197,9 +197,10 @@ function saveChanges(id) {
     axios.put(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`, data)
         .then(() => {
             let id = new URLSearchParams(window.location.search).get('userId');
-            getUserName(id)
+            getUserName(id);
+            // getMySettings(id);
             closedSetting();
-            console.log(data);
+            console.log(image);
         })
 }
 

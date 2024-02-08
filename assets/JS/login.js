@@ -13,7 +13,11 @@ login.addEventListener("submit", async (e) => {
         db.forEach((item) => {
             if (password.value == item.password && username.value == item.userName || username.value == item.email) {
                 found = true;
-                userLogin(item.id)
+                if (item.userName.includes("admin") && item.password == password.value) {
+                    window.location.href = `../../assets/Page/adminPage.html`
+                } else {
+                    userLogin(item.id)
+                }
                 return;
             }
         });
@@ -33,6 +37,6 @@ login.addEventListener("submit", async (e) => {
     }
 });
 
-function userLogin(id){
+function userLogin(id) {
     window.location.href = `../../index.html?userId=${id}`;
 }
