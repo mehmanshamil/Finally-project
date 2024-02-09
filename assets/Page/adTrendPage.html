@@ -16,36 +16,44 @@
 
 <body>
     <main>
+        <div id="detailInformation">
+        </div>
         <section id="commond">
             <div class="commondPanel">
                 <nav>
                     <ul>
-                        <li><i class="fa-solid fa-house-crack"></i>Dashboard</li>
-                        <li><i class="fa-solid fa-chart-simple"></i>Trending</li>
-                        <li><i class="fa-solid fa-layer-group"></i>Category</li>
-                        <li><i class="fa-solid fa-film"></i>Movies</li>
-                        <li><i class="fa-solid fa-user-group"></i>Users</li>
+                        <li><a href="../../assets/Page/adminPage.html"><i
+                                    class="fa-solid fa-house-crack"></i>Dashboard</a></li>
+                        <li><a href="../../assets/Page/adCategPage.html"><i class="fa-solid fa-layer-group"></i>Category</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chart-simple"></i>Trending</a></li>
+                        <li><a href="#"><i class="fa-solid fa-film"></i>Movies</a></li>
+                        <li><a href="#"><i class="fa-solid fa-user-group"></i>Users</a></li>
                     </ul>
                 </nav>
+                <div class="logout">
+                    <a href="../../index.html"><i class="fa-solid fa-right-from-bracket"></i><span>Log out</span></a>
+                </div>
             </div>
             <div id="display">
                 <div class="adminText">
-                    <h4>Admin Settings</h4>
+                    <h4>Trending</h4>
                 </div>
                 <div id="content">
-                    <form id="srcUser" action="#">
-                        <input id="inp" required placeholder="Please enter user name" type="text">
+                    <form id="srcMovie" action="#">
+                        <input id="inp" required placeholder="Please enter movie name" type="text">
                         <button>Search</button>
                     </form>
                     <table>
-                        <h2 class="my-3">User information</h2>
+                        <h2 class="my-5">Trending information</h2>
                         <thead>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Money</th>
-                            <th>Option</th>
+                            <th>image</th>
+                            <th>category</th>
+                            <th>title</th>
+                            <th>price</th>
+                            <th>Trending</th>
                         </thead>
+                        
                         <tbody id="tbody"></tbody>
                     </table>
                 </div>
@@ -54,7 +62,7 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../assets/JS/admin.js"></script>
+    <script src="../JS/adTrend.js"></script>
 </body>
 
 </html>

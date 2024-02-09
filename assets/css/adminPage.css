@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   list-style-type: none;
   text-decoration: none;
@@ -20,7 +19,6 @@ body {
 #detailInformation .information {
   width: 30%;
   background-color: #fff;
-  padding: 20px;
   position: relative;
   z-index: 9;
   height: 35rem;
@@ -34,6 +32,13 @@ body {
 #detailInformation .information .imgProfile {
   width: 10rem;
   height: 10rem;
+  margin: 0.5rem auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#detailInformation .information .imgMovie {
+  width: 6rem;
+  height: 6rem;
   margin: 0.5rem auto;
   border-radius: 50%;
   object-fit: cover;
@@ -63,10 +68,15 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 25rem;
+  height: 35rem;
+  padding: 20px;
+  border-radius: 20px;
   justify-content: center;
   margin-top: 1.5rem;
   gap: 2px;
+  background-color: black;
+  box-shadow: 0px 2px 20px 0.2px #f6be00;
+  color: #fff;
 }
 #detailInformation .information form button {
   font-size: 1.2rem;
@@ -105,8 +115,18 @@ body {
   align-items: flex-start;
   transition: 1s;
 }
+#commond .commondPanel a {
+  width: 8rem;
+  color: black;
+  text-decoration: none;
+  transition: 1s;
+  display: flex;
+}
 #commond .commondPanel:hover li {
   width: 10rem;
+}
+#commond .commondPanel:hover li:hover a {
+  color: #fff;
 }
 #commond .commondPanel:hover .logout {
   width: 10rem;
@@ -125,7 +145,7 @@ body {
   border-radius: 15px;
   padding: 10px;
   transition: 1s;
-  width: 3rem;
+  width: 2.8rem;
   display: flex;
   overflow: hidden;
 }
@@ -151,6 +171,10 @@ body {
 #commond .commondPanel .logout a {
   color: black;
   text-decoration: none;
+  display: flex;
+}
+#commond .commondPanel .logout a span {
+  width: 8rem;
 }
 #commond .commondPanel .logout:hover {
   color: #fff;
@@ -207,15 +231,93 @@ body {
   background-color: #fff;
   color: black;
 }
+#commond #display #content #srcMovie {
+  width: 30%;
+  position: relative;
+  margin: 1.5rem 0;
+}
+#commond #display #content #srcMovie input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+#commond #display #content #srcMovie button {
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: black;
+  transition: 1s;
+}
+#commond #display #content #srcMovie button:hover {
+  background-color: #fff;
+  color: black;
+}
 #commond #display #content table,
 #commond #display #content tr,
 #commond #display #content th,
 #commond #display #content td {
   border: 1px solid black;
+  text-align: center;
+}
+#commond #display #content table i,
+#commond #display #content tr i,
+#commond #display #content th i,
+#commond #display #content td i {
+  margin: 0 0.5rem;
+}
+#commond #display #content table .handleBtn,
+#commond #display #content tr .handleBtn,
+#commond #display #content th .handleBtn,
+#commond #display #content td .handleBtn {
+  background-color: red;
+  color: #fff;
+  transition: 1s;
+  border: 1px solid #fff;
+}
+#commond #display #content table .handleBtn:hover,
+#commond #display #content tr .handleBtn:hover,
+#commond #display #content th .handleBtn:hover,
+#commond #display #content td .handleBtn:hover {
+  color: red;
+}
+#commond #display #content table .activeTrend,
+#commond #display #content tr .activeTrend,
+#commond #display #content th .activeTrend,
+#commond #display #content td .activeTrend {
+  background-color: green;
+  color: #fff;
+  transition: 1s;
+  border: 1px solid green;
+}
+#commond #display #content .option {
+  display: flex;
+  align-items: center;
+  border: none;
+  height: 7rem;
+}
+#commond #display #content .option button {
+  width: 6rem;
+  height: 3rem;
 }
 #commond #display #content th,
 #commond #display #content td {
   padding: 10px;
+}
+#commond #display #content th .img,
+#commond #display #content td .img {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#commond #display #content th .img img,
+#commond #display #content td .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 #commond #display #content table {
   text-align: left;
@@ -244,4 +346,36 @@ body {
   background-color: #fff;
 }
 
-/* ... (Diğer CSS kodları) ... */
+#getCategory {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 10px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 20px 0.2px #f6be00;
+  background-color: black;
+  color: #fff;
+}
+#getCategory label {
+  cursor: pointer;
+  font-weight: 600;
+}
+#getCategory input {
+  border-radius: 20px;
+  padding: 7px 10px;
+}
+#getCategory button {
+  background-color: #f6be00;
+  color: black;
+  width: 150px;
+  transition: 1s;
+  padding: 7px;
+  border: 2px solid #f6be00;
+  border-radius: 20px;
+  margin: 1rem 0;
+}
+#getCategory button:hover {
+  background-color: black;
+  color: #f6be00;
+}

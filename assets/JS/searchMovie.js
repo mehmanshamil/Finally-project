@@ -36,7 +36,7 @@ async function searchMovie(e) {
             let data = db.filter((item) => item.title.toLowerCase().includes(inp.value.toLowerCase()));
             if (data.length <= 0) {
                 moviesProducts.style.height = "35rem";
-                moviesProducts.innerHTML = `<p class="mt-1 alert">The information is not defined, please try again !</p>`
+                moviesProducts.innerHTML = `<div class="mt-1 alert"><p>The information is not defined, please try again !</p></div>`
             } else {
                 display(data);
             }

@@ -36,6 +36,11 @@ function display(data){
         let tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${item.id}</td>
+            <td> 
+            <div class="img">
+            <img src="${item.image}" alt="${item.userName}">
+            </div>
+            </td>
             <td>${item.userName}</td>
             <td>${item.email}</td>
             <td>${item.money} $</td>

@@ -10,14 +10,14 @@ function getAddList() {
         <img src="${item.image}" alt="movie photo">
         <div class="content">
             <div class="text">
-                <p onclick="getMovie(${item.id})" class="getMovie">${item.title}</p>
+                <p onclick="getMovieApply(${item.id})" class="getMovie">${item.title}</p>
                 <p>${item.description}</p>
                 <p>Price : ${item.price} $</p>
                 <p><i class="fa-regular fa-clock"></i> ${item.duration}</p>
             </div>
             <div class="option">
                 <i onclick="removeSaveAdd(${index})" class="fa-solid removeAdd fa-x"></i>
-                <i onclick="getMovie(${item.id})" class="fa-solid plays fa-play"></i>
+                <i onclick="getMovieApply(${item.id})" class="fa-solid plays fa-play"></i>
             </div>
         </div>
         `
@@ -32,17 +32,24 @@ function removeSaveAdd(index) {
     getAddList()
 }
 // get Movie Product
-function getMovie(id) {
-    window.location.href = `../../assets/Page/detaillMovie.html?movieId=${id}`;
+
+function getMovieApply(movieid) {
+    let userid = new URLSearchParams(window.location.search).get('userId');
+    if (userid) {
+        window.location.href = `../../assets/Page/detaillMovie.html?userId=${userid}&movieId=${movieid}`
+    } else {
+        window.location.href = `../../assets/Page/detaillMovie.html?movieId=${movieid}`
+    }
 }
+
 let srcPage = document.getElementById("srcPage");
-srcPage.addEventListener("click",getSrc);
-function getSrc(e){
+srcPage.addEventListener("click", getSrc);
+function getSrc(e) {
     e.preventDefault();
     let userid = new URLSearchParams(window.location.search).get('userId');
-    if(userid){
-        window.location.href=`../../assets/Page/searchMovie.html?userId=${userid}`
-    }else{
-        window.location.href=`../../assets/Page/searchMovie.html`
+    if (userid) {
+        window.location.href = `../../assets/Page/searchMovie.html?userId=${userid}`
+    } else {
+        window.location.href = `../../assets/Page/searchMovie.html`
     }
 }

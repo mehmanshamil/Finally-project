@@ -122,7 +122,7 @@ async function getUserName(id) {
          <span>Welcome ! </span>
         `
         let currentPage = window.location.href;
-        if (!currentPage.includes("detaillMovie.html") && !currentPage.includes("searchMovie.html")) {
+        if (currentPage.includes("index.html")) {
             user.appendChild(div);
             setTimeout(() => {
                 user.removeChild(div);

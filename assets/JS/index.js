@@ -9,6 +9,7 @@ async function trendGet() {
     try {
         const response = await axios.get("https://65b7689c46324d531d548041.mockapi.io/products");
         db = response.data;
+        let data = db.filter((item) => item.trending == true)
         const categoryTrend = new Swiper('#categoryTrend', {
             slidesPerView: 3,
             centeredSlides: true,
@@ -23,7 +24,7 @@ async function trendGet() {
             },
         });
 
-        db.forEach((item) => {
+        data.forEach((item) => {
             categoryTrend.appendSlide(`
                 <div class="swiper-slide swipperSlide">
                     <img src="${item.image}" alt="${item.title}">

@@ -20,7 +20,7 @@ async function getRegister(e) {
             } else if (username.value.length < 6 || !specialChars.test(username.value)) {
                 alertF.style.display = "block";
                 alertF.style.backgroundColor = "red";
-                alertF.innerHTML = `Username must be at least 6 characters long and contain special characters !`;
+                alertF.innerHTML = `Password must be at least 6 characters long and contain special characters !`;
             } else {
                 let data = {
                     userName: username.value,
