@@ -17,7 +17,7 @@ async function getRegister(e) {
                 alertF.style.display = "block";
                 alertF.style.backgroundColor = "red";
                 alertF.innerHTML = `the user is already available !`;
-            } else if (username.value.length < 6 || !specialChars.test(username.value)) {
+            } else if (newPassword.value.length < 6 || !specialChars.test(newPassword.value)) {
                 alertF.style.display = "block";
                 alertF.style.backgroundColor = "red";
                 alertF.innerHTML = `Password must be at least 6 characters long and contain special characters !`;

@@ -108,7 +108,15 @@ async function getPlayerMovie() {
                 <p>Category: <span>${thisMovie.category}</span></p>
                 <p>Date: <span>${thisMovie.uploadTime}</span></p>
                 <p><i class="fa-regular fa-clock"></i> Time : <span>${thisMovie.duration}</span></p>
-                <p><i onclick="addSaveFunc(${thisMovie.id},this)" class="fa-solid added fa-plus"></i> Add to List</p>
+                <div class="d-flex align-items-center">
+                <div><i onclick="addSaveFunc(${thisMovie.id},this)" class="fa-solid added fa-plus"></i> Add to List</div>
+                <div class="mx-3 shared"><i class="fa-solid  fa-share-nodes"></i><span>Share</span>
+                <div class="shareMovie">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+                </div>
+                </div>
                 <p>Price : ${thisMovie.price} $</p>
                 <p>
                 ${thisMovie.description}

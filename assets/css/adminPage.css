@@ -379,3 +379,118 @@ body {
   background-color: black;
   color: #f6be00;
 }
+
+#createMovie {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  border: 1px solid #f6be00;
+  background-color: black;
+  color: #fff;
+  gap: 10px;
+  box-shadow: 0 2px 20px 0.2px #f6be00;
+  padding: 20px;
+  border-radius: 20px;
+}
+#createMovie .contentForm {
+  display: flex;
+  justify-content: space-between;
+}
+#createMovie .formBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#createMovie input {
+  padding: 7px;
+  border-radius: 20px;
+  width: 14rem;
+}
+#createMovie label {
+  cursor: pointer;
+}
+#createMovie button {
+  margin: 1rem 0;
+  width: 10rem;
+  padding: 7px;
+  border: 1px solid #f6be00;
+  border-radius: 15px;
+  background-color: #fff;
+  color: black;
+  font-weight: 600;
+  transition: 1s;
+}
+#createMovie button:hover {
+  background-color: #f6be00;
+}
+
+.informationMovie {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: #fff;
+  box-shadow: 0px 2px 20px 0.2px #f6be00;
+  padding: 25px;
+  border-radius: 10px;
+  z-index: 999;
+  width: 50%;
+  position: relative;
+}
+.informationMovie #closed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+  border: 1px solid #fff;
+  transition: 1s;
+  cursor: pointer;
+}
+.informationMovie #closed:hover {
+  background-color: #fff;
+  color: red;
+  border: 1px solid red;
+}
+.informationMovie .contentForm {
+  display: flex;
+  justify-content: space-around;
+}
+.informationMovie .contentForm .formBox {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  gap: 5px;
+}
+.informationMovie .contentForm .formBox #imgDetailMovie {
+  width: 250px;
+  height: 149px;
+  object-fit: cover;
+  margin: 1rem 0;
+  border-radius: 7px;
+}
+.informationMovie .contentForm .formBox input {
+  border-radius: 7px;
+  padding: 5px;
+}
+.informationMovie .contentForm .formBox button {
+  margin: 1rem 0;
+  width: 10rem;
+  padding: 7px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  background-color: green;
+  color: #fff;
+  font-weight: 600;
+  transition: 1s;
+}
+.informationMovie .contentForm .formBox button:hover {
+  background-color: #fff;
+  color: green;
+  border: 1px solid #000;
+}

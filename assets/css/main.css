@@ -722,6 +722,28 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+#moviePlayer .container .content .informationMovie .shared {
+  cursor: pointer;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  transition: 0.5s;
+  position: relative;
+}
+#moviePlayer .container .content .informationMovie .shared:hover .shareMovie {
+  display: flex;
+}
+#moviePlayer .container .content .informationMovie .shared .shareMovie {
+  position: absolute;
+  top: -3.9rem;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f6be00;
+  width: 2rem;
+  align-items: center;
+  padding: 10px;
+}
 #moviePlayer .container .content .informationMovie .fa-thumbs-up {
   color: #f6be00;
 }

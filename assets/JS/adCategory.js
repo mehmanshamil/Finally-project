@@ -34,6 +34,7 @@ async function deleteCategory(id) {
         console.error("err:", error);
     }
 }
+
 async function changeFuncInfo(id) {
     try {
         let detailInformation = document.getElementById("detailInformation")

@@ -9,14 +9,15 @@ body {
     background-color: #F5F2EC;
 }
 
-#detailInformation{
+#detailInformation {
     position: absolute;
     width: 100%;
     justify-content: center;
     align-items: center;
     height: 46rem;
     display: none;
-    .information{
+
+    .information {
         width: 30%;
         background-color: #fff;
         position: relative;
@@ -25,24 +26,28 @@ body {
         display: flex;
         border-radius: 15px;
         align-items: center;
-        input{
+
+        input {
             border-radius: 10px;
         }
-        .imgProfile{
+
+        .imgProfile {
             width: 10rem;
             height: 10rem;
             margin: 0.5rem auto;
             border-radius: 50%;
             object-fit: cover;
         }
-        .imgMovie{
+
+        .imgMovie {
             width: 6rem;
             height: 6rem;
             margin: 0.5rem auto;
             border-radius: 50%;
             object-fit: cover;
         }
-        #closed{
+
+        #closed {
             position: absolute;
             top: 0;
             right: 0;
@@ -57,15 +62,17 @@ body {
             border: 1px solid #fff;
             transition: 1s;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 background-color: #fff;
                 color: red;
                 border: 1px solid red;
             }
         }
-        form{
+
+        form {
             display: flex;
-            flex-direction: column ;
+            flex-direction: column;
             width: 100%;
             height: 35rem;
             padding: 20px;
@@ -76,7 +83,8 @@ body {
             background-color: black;
             box-shadow: 0px 2px 20px 0.2px #f6be00;
             color: #fff;
-            button{
+
+            button {
                 font-size: 1.2rem;
                 width: 150px;
                 margin: 1rem 0;
@@ -86,17 +94,20 @@ body {
                 transition: 1s;
                 border: 1px solid green;
                 padding: 6px;
-                &:hover{
+
+                &:hover {
                     background-color: #fff;
                     color: green;
                 }
-                i{
+
+                i {
                     font-size: 1.3rem;
                 }
             }
         }
     }
 }
+
 #commond {
     display: flex;
     gap: 25px;
@@ -114,24 +125,27 @@ body {
         justify-content: space-between;
         align-items: flex-start;
         transition: 1s;
-        a{
+
+        a {
             width: 8rem;
             color: black;
             text-decoration: none;
             transition: 1s;
             display: flex;
         }
+
         &:hover {
             li {
                 width: 10rem;
-                &:hover{
-                    a{
+
+                &:hover {
+                    a {
                         color: #fff;
                     }
                 }
             }
-            
-            .logout{
+
+            .logout {
                 width: 10rem;
             }
         }
@@ -168,7 +182,8 @@ body {
                 }
             }
         }
-        .logout{
+
+        .logout {
             font-weight: 600;
             cursor: pointer;
             border-radius: 15px;
@@ -177,19 +192,23 @@ body {
             width: 3rem;
             display: flex;
             overflow: hidden;
-            a{
+
+            a {
                 color: black;
                 text-decoration: none;
                 display: flex;
-                span{
+
+                span {
                     width: 8rem;
                 }
             }
+
             &:hover {
                 color: #fff;
                 background-color: red;
                 width: 10rem;
-                a{
+
+                a {
                     color: #fff !important;
                     // transition: 1s;
                 }
@@ -207,14 +226,16 @@ body {
         width: 100%;
         height: 46rem;
         overflow: scroll;
-        .adminText{
+
+        .adminText {
             width: 100%;
             display: flex;
             justify-content: center;
-            h4{
+
+            h4 {
                 width: 72%;
                 font-weight: bold;
-            margin-top: 1.7rem;
+                margin-top: 1.7rem;
             }
         }
 
@@ -249,6 +270,7 @@ body {
                     }
                 }
             }
+
             #srcMovie {
                 width: 30%;
                 position: relative;
@@ -282,51 +304,60 @@ body {
             td {
                 border: 1px solid black;
                 text-align: center;
-                i{
+
+                i {
                     margin: 0 0.5rem;
                 }
-                .handleBtn{
+
+                .handleBtn {
                     background-color: red;
                     color: #fff;
                     transition: 1s;
                     border: 1px solid #fff;
-                    &:hover{
-                    color: red;
-                    
+
+                    &:hover {
+                        color: red;
+
                     }
                 }
-                .activeTrend{
+
+                .activeTrend {
                     background-color: green;
                     color: #fff;
                     transition: 1s;
                     border: 1px solid green;
-                    &:hover{
+
+                    &:hover {
                         // color: green;
                         // background-color: #fff;
                     }
                 }
             }
-            .option{
-            display: flex;
-            align-items: center;
-            border: none;
-            height: 7rem;
-            button{
-                width: 6rem;
-                height: 3rem;
-            }
+
+            .option {
+                display: flex;
+                align-items: center;
+                border: none;
+                height: 7rem;
+
+                button {
+                    width: 6rem;
+                    height: 3rem;
+                }
             }
 
             th,
             td {
                 padding: 10px;
-                .img{
+
+                .img {
                     width: 6rem;
                     height: 6rem;
                     margin: 0 auto;
                     border-radius: 50%;
                     overflow: hidden;
-                    img{
+
+                    img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
@@ -338,18 +369,19 @@ body {
                 text-align: left;
                 width: 50%;
                 max-height: 500px;
+
                 .pencil {
                     width: 2.5rem;
                     cursor: pointer;
                 }
-            
+
                 #red {
                     max-height: 500px;
                     overflow-y: scroll;
                     display: block;
-                
+
                 }
-            
+
                 button {
                     color: #fff;
                     background-color: red;
@@ -357,19 +389,19 @@ body {
                     transition: 1s;
                     padding: 7px;
                     border: 1px solid red;
-            
+
                     &:hover {
                         color: red;
                         background-color: #fff;
                     }
                 }
             }
-            
+
         }
     }
 }
 
-#getCategory{
+#getCategory {
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -379,15 +411,18 @@ body {
     box-shadow: 0px 2px 20px 0.2px #f6be00;
     background-color: black;
     color: #fff;
-    label{
+
+    label {
         cursor: pointer;
         font-weight: 600;
     }
-    input{
+
+    input {
         border-radius: 20px;
         padding: 7px 10px;
     }
-    button{
+
+    button {
         background-color: #f6be00;
         color: black;
         width: 150px;
@@ -396,9 +431,134 @@ body {
         border: 2px solid #f6be00;
         border-radius: 20px;
         margin: 1rem 0;
-        &:hover{
+
+        &:hover {
             background-color: black;
             color: #f6be00;
+        }
+    }
+}
+
+#createMovie {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 1px solid #f6be00;
+    background-color: black;
+    color: #fff;
+    gap: 10px;
+    box-shadow: 0 2px 20px 0.2px #f6be00;
+    padding: 20px;
+    border-radius: 20px;
+
+    .contentForm {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .formBox {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    input {
+        padding: 7px;
+        border-radius: 20px;
+        width: 14rem;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    button {
+        margin: 1rem 0;
+        width: 10rem;
+        padding: 7px;
+        border: 1px solid #f6be00;
+        border-radius: 15px;
+        background-color: #fff;
+        color: black;
+        font-weight: 600;
+        transition: 1s;
+
+        &:hover {
+            background-color: #f6be00;
+        }
+    }
+
+}
+.informationMovie{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: #fff;
+    box-shadow: 0px 2px 20px 0.2px #f6be00;
+    padding: 25px;
+    border-radius: 10px;
+    z-index: 999;
+    width: 50%;
+    position: relative;
+    #closed {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        border-radius: 50%;
+        color: #fff;
+        border: 1px solid #fff;
+        transition: 1s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #fff;
+            color: red;
+            border: 1px solid red;
+        }
+    }
+    .contentForm{
+        display: flex;
+        justify-content:  space-around;
+        .formBox{
+            display: flex;
+            flex-direction: column;
+            width: 35%;
+            gap: 5px;
+            #imgDetailMovie{
+                width: 250px;
+                height: 149px;
+                object-fit: cover;
+                margin: 1rem 0;
+                border-radius: 7px;
+            }
+            input{
+                border-radius: 7px;
+                padding: 5px;
+            }
+            button {
+                margin: 1rem 0;
+                width: 10rem;
+                padding: 7px;
+                border: 1px solid #fff;
+                border-radius: 15px;
+                background-color: green;
+                color: #fff;
+                font-weight: 600;
+                transition: 1s;
+        
+                &:hover {
+                    background-color: #fff;
+                    color: green;
+                    border: 1px solid #000;
+                }
+            }
+            
         }
     }
 }
