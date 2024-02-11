@@ -8,6 +8,30 @@ body {
   background-color: #F5F2EC;
 }
 
+header {
+  height: 3.5rem;
+  background-color: black;
+  display: none;
+  justify-content: end;
+}
+header .iconMenu {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 7px;
+  align-items: center;
+  background-color: #fff;
+  margin: 0.4rem;
+  font-size: 1.4rem;
+  border: 1px solid #fff;
+  transition: 1s;
+}
+header .iconMenu:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 #detailInformation {
   position: absolute;
   width: 100%;
@@ -324,6 +348,10 @@ body {
   width: 50%;
   max-height: 500px;
 }
+#commond #display #content table .optionBtn {
+  height: 7.2rem;
+  border: none;
+}
 #commond #display #content table .pencil {
   width: 2.5rem;
   cursor: pointer;
@@ -339,6 +367,9 @@ body {
   border-radius: 10px;
   transition: 1s;
   padding: 7px;
+  display: flex;
+  align-items: center;
+  height: 3rem;
   border: 1px solid red;
 }
 #commond #display #content table button:hover {
@@ -380,10 +411,44 @@ body {
   color: #f6be00;
 }
 
-#createMovie {
+#getUsers {
   display: flex;
   flex-direction: column;
   width: 40%;
+  gap: 10px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 20px 0.2px #f6be00;
+  background-color: black;
+  color: #fff;
+}
+#getUsers label {
+  cursor: pointer;
+  font-weight: 600;
+}
+#getUsers input {
+  border-radius: 20px;
+  padding: 7px 10px;
+}
+#getUsers button {
+  background-color: #f6be00;
+  color: black;
+  width: 150px;
+  transition: 1s;
+  padding: 7px;
+  border: 2px solid #f6be00;
+  border-radius: 20px;
+  margin: 1rem 0;
+}
+#getUsers button:hover {
+  background-color: black;
+  color: #f6be00;
+}
+
+#createMovie {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
   border: 1px solid #f6be00;
   background-color: black;
   color: #fff;
@@ -400,11 +465,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 40%;
 }
 #createMovie input {
   padding: 7px;
   border-radius: 20px;
-  width: 14rem;
+  width: 100%;
 }
 #createMovie label {
   cursor: pointer;
@@ -493,4 +559,104 @@ body {
   background-color: #fff;
   color: green;
   border: 1px solid #000;
+}
+
+.trendBtn {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes menuAnimation {
+  from {
+    transform: translateX(-200px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@media only screen and (max-width: 767px) {
+  #commond #display #content #srcMovie {
+    width: 80%;
+  }
+  #commond #display #content table {
+    width: 70%;
+  }
+  #getUsers {
+    width: 80%;
+  }
+  label {
+    font-size: 15px;
+  }
+  .duration {
+    font-size: 13px;
+  }
+  #createMovie {
+    width: 90%;
+    margin: 1rem 0;
+  }
+  #commond #display #content .option {
+    border: 1px solid black;
+    justify-content: center;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+  }
+  header h4 {
+    color: #fff;
+  }
+  #getCategory {
+    width: 80%;
+  }
+  #commond #display .adminText h4 {
+    display: none;
+  }
+  #commond .commondPanel {
+    width: 12rem;
+    display: none;
+    z-index: 9;
+    animation: menuAnimation 1s forwards;
+  }
+  #commond .commondPanel nav ul li {
+    width: 10rem;
+  }
+  #commond #display #content #srcUser {
+    width: 85%;
+  }
+  #commond #display #content table .optionBtn {
+    border: 1px solid black;
+  }
+  td {
+    display: block;
+  }
+  td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  th {
+    display: none;
+  }
+  .optionBtn {
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #commond #display #content #srcUser {
+    width: 65%;
+  }
+  #commond #display #content {
+    padding: 10px;
+  }
+  #commond #display #content th, #commond #display #content td {
+    padding: 2px;
+  }
+  #commond #display #content table {
+    width: 89%;
+  }
+  #commond #display #content table {
+    align-self: flex-end;
+  }
 }

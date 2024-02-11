@@ -15,6 +15,10 @@
 </head>
 
 <body>
+    <header>
+        <h4>Movies</h4>
+        <i id="minMenu" class="fa-solid iconMenu fa-bars"></i>
+    </header>
     <main>
         <div id="detailInformation">
         </div>
@@ -29,7 +33,7 @@
                         <li><a href="../../assets/Page/adTrendPage.html"><i
                                     class="fa-solid fa-chart-simple"></i>Trending</a></li>
                         <li><a href="#"><i class="fa-solid fa-film"></i>Movies</a></li>
-                        <li><a href="#"><i class="fa-solid fa-user-group"></i>Users</a></li>
+                        <li><a href="../../assets/Page/adUser.html"><i class="fa-solid fa-user-group"></i>Users</a></li>
                     </ul>
                 </nav>
                 <div class="logout">
@@ -51,8 +55,8 @@
                                 <input required id="moviePrice" placeholder="Movie price" type="number">
                                 <label for="movieImg">Movie img</label>
                                 <input id="movieImg" required placeholder="Movie image" type="text">
-                                <label for="movieDes">Movie description</label>
-                                <input type="text" id="movieDes" placeholder="Movie description">
+                                <label for="language">Language</label>
+                                <input required type="text" id="language" placeholder="Language">
                                 <label for="movFragman">Fragman</label>
                                 <input id="movFragman" type="text" placeholder="Fragman">
                             </div>
@@ -63,15 +67,15 @@
                                 <input id="imdb" type="text" required placeholder="imdb">
                                 <label for="uploadTime">uploadTime</label>
                                 <input required type="text" id="uploadTime" placeholder="UploadTime">
-                                <label for="language">Language</label>
-                                <input required type="text" id="language" placeholder="Language">
                                 <label for="videoLink">videoLink</label>
-                                <input type="text" required id="videLink" placeholder="videolink">
+                                <input type="text" required id="videoLink" placeholder="videolink">
+                                <label class="duration" for="movieduration">Movie duration</label>
+                                <input required placeholder="Movie duration" id="movieduration" type="text">
+
                             </div>
                         </div>
-                        
-                        <label for="movieduration">Movie duration</label>
-                        <input required placeholder="Movie duration" id="movieduration" type="text">
+                        <label for="movieDes">Movie description</label>
+                        <input type="text" id="movieDes" placeholder="Movie description">
                         <button id="create" type="submit">Create</button>
                     </form>
                     <form class="my-5" id="srcUser" action="#">
@@ -89,17 +93,16 @@
                             <th>Option</th>
                         </thead>
                         <tbody id="tbody">
-
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </section>
-
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../assets/JS/adMov.js"></script>
+    <script src="../JS/adHeader.js"></script>
+
 </body>
 
 </html>

@@ -9,15 +9,15 @@ async function getProducts() {
             db.filter((item) => {
                 let tr = document.createElement("tr");
                 tr.innerHTML = `
-                <td>${item.id}</td>
-                <td> 
+                <td  data-cell="ID">${item.id}</td>
+                <td  data-cell="Image"> 
                 <div class="img">
                 <img src="${item.image}" alt="${item.userName}">
                 </div>
                 </td>
-                <td>${item.content}</td>
-                <td>${item.icon}</td>
-                <td class="option"><i <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i><button onclick="deleteCategory(${item.id})" ><i class="fa-solid fa-trash"></i> Delete </button></td>
+                <td  data-cell="Content">${item.content}</td>
+                <td  data-cell="Icon">${item.icon}</td>
+                <td  data-cell="Option" class="option"><i <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i><button onclick="deleteCategory(${item.id})" ><i class="fa-solid fa-trash"></i> Delete </button></td>
                 `;
                 tbody.appendChild(tr);
             })
@@ -102,5 +102,4 @@ function categoryCreate(e){
             infoDetailClose();
             getCategory.reset();
         })
-
 }

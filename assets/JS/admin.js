@@ -31,24 +31,33 @@ async function findUsers(e) {
         console.error("err:", error);
     }
 }
-function display(data){
-    data.forEach((item) => {
+function display(data) {
+    if (data.length === 0) {
         let tr = document.createElement("tr");
         tr.innerHTML = `
-            <td>${item.id}</td>
-            <td> 
-            <div class="img">
-            <img src="${item.image}" alt="${item.userName}">
-            </div>
-            </td>
-            <td>${item.userName}</td>
-            <td>${item.email}</td>
-            <td>${item.money} $</td>
-            <td><i <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i><button onclick="deleteAndUpdateUser(${item.id})" ><i class="fa-solid fa-trash"></i> Delete </button></td>
+            <td colspan="6">Not Available</td>
         `;
         tbody.appendChild(tr);
-    });
-} 
+    } else {
+        data.forEach((item) => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td data-cell="ID">${item.id}</td>
+                <td data-cell="Image"> 
+                    <div class="img">
+                        <img src="${item.image}" alt="${item.userName}">
+                    </div>
+                </td>
+                <td data-cell="Name">${item.userName}</td>
+                <td data-cell="Email">${item.email}</td>
+                <td data-cell="Money">${item.money} $</td>
+                <td data-cell="Option" class="d-flex align-items-center optionBtn"><i <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i><button onclick="deleteAndUpdateUser(${item.id})" ><i class="fa-solid fa-trash"></i> Delete </button></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+}
+
 
 async function deleteAndUpdateUser(id) {
     try {
@@ -65,8 +74,8 @@ async function changeFuncInfo(id) {
         let detailInformation = document.getElementById("detailInformation")
         let person = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`)
         let thisPerson = person.data;
-        if(thisPerson.image == undefined){
-            thisPerson.image="https://www.shutterstock.com/image-vector/default-profile-picture-avatar-photo-600nw-1681253560.jpg"
+        if (thisPerson.image == undefined) {
+            thisPerson.image = "https://www.shutterstock.com/image-vector/default-profile-picture-avatar-photo-600nw-1681253560.jpg"
         }
         detailInformation.style.display = "flex"
         detailInformation.innerHTML = `
@@ -93,27 +102,59 @@ async function changeFuncInfo(id) {
         console.log(err);
     }
 }
-function saveNewInfo(id){
+function saveNewInfo(id) {
     let newName = document.getElementById("newName");
     let newPass = document.getElementById("newPass");
     let newImage = document.getElementById("newImg");
     let newEmail = document.getElementById("newEmail");
     let newMoney = document.getElementById("newMoney");
-    let data ={
-        userName:newName.value,
-        password:newPass.value,
-        image:newImage.value,
-        email:newEmail.value,
-        money:newMoney.value,
+    let data = {
+        userName: newName.value,
+        password: newPass.value,
+        image: newImage.value,
+        email: newEmail.value,
+        money: newMoney.value,
     }
-    axios.put(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`,data)
-    .then(() =>{
-        getUsers();
-        infoDetailClose();
-    })
+    axios.put(`https://65b7689c46324d531d548041.mockapi.io/account/${id}`, data)
+        .then(() => {
+            getUsers();
+            infoDetailClose();
+        })
 }
-
 function infoDetailClose() {
     let detailInformation = document.getElementById("detailInformation");
-    detailInformation.style.display = "none"
+    if (detailInformation) {
+        detailInformation.style.display = "none";
+    }
 }
+
+
+let getUsersForm = document.getElementById("getUsers");
+if (getUsersForm) {
+    getUsersForm.addEventListener("submit", usersCreate);
+}
+
+function usersCreate(e) {
+    e.preventDefault();
+    let newName = document.getElementById("newName");
+    let newEmail = document.getElementById("newEmail");
+    let newPass = document.getElementById("newPass");
+    let newImage = document.getElementById("newImage");
+    let data = {
+        userName: newName.value,
+        password: newPass.value,
+        email: newEmail.value,
+        money: 200,
+        image: newImage.value,
+    };
+    axios.post(`https://65b7689c46324d531d548041.mockapi.io/account`, data)
+        .then(() => {
+            getUsers();
+            // infoDetailClose();
+            getUsersForm.reset();
+        })
+        .catch(error => {
+            console.error('Error creating user:', error);
+        });
+}
+

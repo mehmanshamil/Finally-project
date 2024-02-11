@@ -6,7 +6,6 @@ let movFragman = document.getElementById("movFragman");
 let movCategory = document.getElementById("movCategory");
 let language = document.getElementById("language");
 let uploadTime = document.getElementById("uploadTime");
-// let videLink = document.getElementById("videLink");
 let movieDes = document.getElementById("movieDes");
 let imdb = document.getElementById("imdb");
 let movieduration = document.getElementById("movieduration");
@@ -30,45 +29,31 @@ function getCreateMovie(e) {
         uploadTime: uploadTime.value,
         fragman: movFragman.value,
     }
-    console.log(data);
     axios.post("https://65b7689c46324d531d548041.mockapi.io/products",data)
     .then(() =>{
-        setInterval(() => {
-            create.style.backgroundColor="green";
-        }, 3500);
-        console.log(data);
-
+        create.style.backgroundColor="green";
+        setTimeout(() => {
+        create.style.backgroundColor="yellow";
+        }, 1000);
+        movieDetails()
     })
 }
 
 let tbody = document.getElementById("tbody");
 
 async function movieDetails() {
+    tbody.innerHTML="";
     await axios.get("https://65b7689c46324d531d548041.mockapi.io/products")
         .then((res) => {
             db = res.data;
-            db.filter((item) => {
-                let tr = document.createElement("tr");
-                tr.innerHTML = `
-            <td>${item.id}</td>
-            <td> 
-            <div class="img">
-            <img src="${item.image}" alt="${item.userName}">
-            </div>
-            </td>
-            <td>${item.title}</td>
-            <td>${item.price} $</td>
-            <td class="option"><i <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i><button onclick="deleteMovies(${item.id})" ><i class="fa-solid fa-trash"></i> Delete </button></td>
-            `
-                tbody.append(tr)
-            })
+            display(db);
         })
 }
 movieDetails()
 async function deleteMovies(id) {
     try {
         await axios.delete(`https://65b7689c46324d531d548041.mockapi.io/products/${id}`);
-        getProducts();
+        movieDetails();
     } catch (error) {
         console.error("err:", error);
     }
@@ -94,7 +79,7 @@ async function changeFuncInfo(id) {
             <input required id="movienewPrice" placeholder="Movie price" value="${thisMovie.price}" type="number">
             <label for="movienewImg">Movie img</label>
             <img id="imgDetailMovie" src="${thisMovie.image}" alt="image Movie">
-            <input id="movienewImg" required placeholder="Movie image" type="text">
+            <input id="movienewImg" value="${thisMovie.image}" required placeholder="Movie image" type="text">
             <label for="movienewDes">Movie description</label>
             <input type="text"id="movienewDes" value="${thisMovie.description}" placeholder="Movie description">
             <label for="movnewFragman">Fragman</label>
@@ -112,7 +97,7 @@ async function changeFuncInfo(id) {
             <label for="newvideoLink">videoLink</label>
             <input type="text" required id="newvideoLink" value="${thisMovie.videoUrl}" placeholder="videolink">
             <label for="newmovieduration">Movie duration</label>
-            <input required placeholder="Movie duration" id="newmovieduration" type="text">
+            <input required placeholder="Movie duration" value="${thisMovie.duration}" id="newmovieduration" type="text">
             <button onclick="saveNewInfo(${thisMovie.id})" id="create" type="submit">Update</button>
         </div>
     </div>
@@ -149,13 +134,57 @@ function saveNewInfo(id) {
         uploadTime: newuploadTime.value,
         fragman: movnewFragman.value,
     }
-    axios.put(`https://6589aaa6324d4171525951a6.mockapi.io/user/MovieCategory/${id}`, data)
+    axios.put(`https://65b7689c46324d531d548041.mockapi.io/products/${id}`, data)
         .then(() => {
-            getProducts();
+            movieDetails();
             infoDetailClose();
         })
 }
 function infoDetailClose() {
     let detailInformation = document.getElementById("detailInformation");
     detailInformation.style.display = "none"
+}
+let getMovie = document.getElementById("srcUser");
+getMovie.addEventListener("submit", movieSearch);
+
+async function movieSearch(e) {
+    e.preventDefault();
+    tbody.innerHTML = "";
+    let inp = document.getElementById("inp");
+    try {
+        const response = await axios.get("https://65b7689c46324d531d548041.mockapi.io/products");
+        const db = response.data;
+        let data = db.filter((item) => item.title.toLowerCase().includes(inp.value.toLowerCase()));
+        display(data)
+    } catch (error) {
+        console.error("err:", error);
+    }
+}
+function display(data) {
+    if (data.length > 0) {
+        data.forEach((item) => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td  data-cell="ID">${item.id}</td>
+                <td  data-cell="Image"> 
+                    <div class="img">
+                        <img src="${item.image}" alt="${item.userName}">
+                    </div>
+                </td>
+                <td  data-cell="title">${item.title}</td>
+                <td  data-cell="Price">${item.price} $</td>
+                <td  data-cell="Option" class="option">
+                    <i onclick="changeFuncInfo(${item.id})" class="fa-solid pencil fa-pencil"></i>
+                    <button onclick="deleteMovies(${item.id})">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } else {
+        let tr = document.createElement("tr");
+        tr.innerHTML = "<td colspan='5'>No movies found!</td>";
+        tbody.appendChild(tr);
+    }
 }

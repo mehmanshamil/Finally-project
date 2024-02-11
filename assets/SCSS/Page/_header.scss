@@ -187,7 +187,9 @@ header {
         .logo {
             display: flex;
             gap: 20px;
-
+            img{
+                cursor: pointer;
+            }
             .welcome {
                 width: 30%;
                 background-color: black;
@@ -551,65 +553,76 @@ header {
         transform: translatex(0);
         opacity: 1;
     }
+
     to {
         transform: translatex(-200px);
         opacity: 0;
     }
 }
 
-// #burgerIcon{
-
-// }
 @media only screen and (max-width: 767px) {
-    header .container .add-list #wishAlert{
-        top: -12.5rem !important;
-        left: 6.7rem !important; 
-        z-index: 9999;   
+    header .container .add-list #wishAlert {
+        left: -6rem !important;
+        z-index: 9999;
     }
-    header .container .add-list .wishHead .wish{
+
+    header .container .add-list .wishHead .wish {
         width: 16.5rem !important;
     }
+
     header #settAcc img {
         width: 10rem;
         height: 10rem;
     }
+
     header #settAcc .contentSet {
         width: 100%;
     }
-    header #settAcc{
+
+    header #settAcc {
         width: 95.7%;
         align-items: flex-start;
     }
-    header #settAcc #SettingsChange{
+
+    header #settAcc #SettingsChange {
         flex-wrap: wrap;
         justify-content: center;
     }
-    header #settAcc .image input{
+
+    header #settAcc .image input {
         margin: 1rem 0;
         width: 100%;
     }
-    header .profileUser img{
+
+    header .profileUser img {
         width: 2rem !important;
     }
-    header .container .logo img{
+
+    header .container .logo img {
         width: 5rem;
     }
-    #hero .container{
+
+    #hero .container {
         height: auto;
     }
-    #hero .container .content h1{
+
+    #hero .container .content h1 {
         font-size: 2rem !important;
     }
-    #hero .container .content .raiting{
+
+    #hero .container .content .raiting {
         flex-wrap: wrap;
     }
-    header .container .logo .welcome{
+
+    header .container .logo .welcome {
         width: 80%;
     }
-    .menBurger{
+
+    .menBurger {
         width: 100%;
     }
-    header .container nav{
+
+    header .container nav {
         background-color: black;
         position: absolute;
         left: 0;
@@ -622,7 +635,8 @@ header {
         border-radius: 10px;
         animation: menuAnime 1s ease forwards;
     }
-    #burgerIcon{
+
+    #burgerIcon {
         position: absolute;
         top: 0;
         right: 0;
@@ -636,18 +650,21 @@ header {
         font-size: 1.4rem;
         border-radius: 10px;
         background-color: black;
-        &:hover{
+
+        &:hover {
             color: #fff;
         }
     }
-    header .container nav ul{
+
+    header .container nav ul {
         padding-top: 2rem;
         display: flex;
         flex-direction: column;
         gap: 25px;
         width: 90%;
     }
-    header .container .add-list{
+
+    header .container .add-list {
         position: absolute;
         left: 0;
         z-index: 9999;
@@ -656,14 +673,11 @@ header {
         gap: 20px;
         display: none;
         margin-left: 1.5rem;
-        i{
-            &:hover{
+
+        i {
+            &:hover {
                 color: #fff;
             }
         }
-        // gap: 10px;
-        // justify-content: end;
     }
 }
-  
-  /* Tablets */

@@ -82,7 +82,6 @@ function getMovieLocation(movieid) {
 
 let movieAnime = document.getElementById("movieAnime")
 
-console.log(movieAnime);
 async function getPlayerMovie() {
     let loading = true;
     if (loading) {
@@ -112,13 +111,23 @@ async function getPlayerMovie() {
                 <div><i onclick="addSaveFunc(${thisMovie.id},this)" class="fa-solid added fa-plus"></i> Add to List</div>
                 <div class="mx-3 shared"><i class="fa-solid  fa-share-nodes"></i><span>Share</span>
                 <div class="shareMovie">
+                <a href="https://www.facebook.com">
                 <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.instagram.com">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com/">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
             </div>
                 </div>
                 </div>
                 <p>Price : ${thisMovie.price} $</p>
-                <p>
+                <p class="description">
                 ${thisMovie.description}
                 </p>
                 <button onclick="getMoviePlays('${thisMovie.videoUrl}', ${thisMovie.price})"><i class="fa-solid mx-1 fa-play"></i> Watch Now</button>
@@ -137,6 +146,7 @@ async function getPlayerMovie() {
         .catch(err => console.log(err))
 }
 getPlayerMovie()
+
 
 function addSaveFunc(id, element) {
     let list = JSON.parse(localStorage.getItem("list")) || [];
@@ -253,19 +263,6 @@ function getSrc(e) {
         window.location.href = `../../assets/Page/searchMovie.html`
     }
 }
-// let addLis = document.getElementById("addlis");
-// addLis.addEventListener('click', getAddToList)
-
-// function getAddToList(e) {
-//     e.preventDefault();
-//     let userid = new URLSearchParams(window.location.search).get('userId');
-//     if (userid) {
-//         window.location.href = `../../assets/Page/addList.html?userId=${userid}`;
-//     } else {
-//         window.location.href = "/"
-//     }
-// }
-
 let homePage = document.getElementById("homePage");
 let movieGet = document.getElementById("movieGet");
 movieGet.addEventListener("click", getIndexToList);

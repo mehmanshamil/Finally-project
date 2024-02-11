@@ -156,6 +156,9 @@ header .container .logo {
   display: flex;
   gap: 20px;
 }
+header .container .logo img {
+  cursor: pointer;
+}
 header .container .logo .welcome {
   width: 30%;
   background-color: black;
@@ -445,8 +448,7 @@ header .container i:hover {
 }
 @media only screen and (max-width: 767px) {
   header .container .add-list #wishAlert {
-    top: -12.5rem !important;
-    left: 6.7rem !important;
+    left: -6rem !important;
     z-index: 9999;
   }
   header .container .add-list .wishHead .wish {
@@ -544,7 +546,6 @@ header .container i:hover {
     color: #fff;
   }
 }
-/* Tablets */
 body {
   height: 100vh;
   display: flex;
@@ -702,10 +703,24 @@ body {
 #moviePlayer .container {
   position: relative;
 }
+#moviePlayer .container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
 #moviePlayer .container img {
   width: 100%;
   object-fit: cover;
   height: 45rem;
+}
+#moviePlayer .container .fa-plus,
+#moviePlayer .container .fa-thumbs-up {
+  cursor: pointer;
 }
 #moviePlayer .container .content {
   position: absolute;
@@ -715,6 +730,7 @@ body {
   align-items: center;
   width: 70%;
   height: 100%;
+  z-index: 2;
 }
 #moviePlayer .container .content .informationMovie {
   width: 80%;
@@ -735,14 +751,28 @@ body {
 }
 #moviePlayer .container .content .informationMovie .shared .shareMovie {
   position: absolute;
-  top: -3.9rem;
+  top: -9.5rem;
   display: none;
   flex-direction: column;
   gap: 10px;
+  animation: shareLinkAnime 0.5s forwards;
   background-color: #f6be00;
   width: 2rem;
+  left: -0.5rem;
   align-items: center;
+  border-radius: 5px;
   padding: 10px;
+  transition: 1s;
+}
+#moviePlayer .container .content .informationMovie .shared .shareMovie:hover {
+  background-color: #000;
+}
+#moviePlayer .container .content .informationMovie .shared .shareMovie a i {
+  color: #fff;
+  transition: 1s;
+}
+#moviePlayer .container .content .informationMovie .shared .shareMovie a i:hover {
+  color: #f6be00;
 }
 #moviePlayer .container .content .informationMovie .fa-thumbs-up {
   color: #f6be00;
@@ -833,9 +863,23 @@ body {
   font-size: 1.2rem;
 }
 
+@keyframes shareLinkAnime {
+  from {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
 @media only screen and (max-width: 767px) {
   #trending .container .head p {
     text-align: center;
+  }
+  .description {
+    overflow: hidden;
+    height: 23rem;
   }
   #moviePlayer #payment {
     left: 15%;
@@ -843,7 +887,8 @@ body {
     z-index: 9999;
   }
   #moviePlayer #popup-container {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
   }
   #moviePlayer .container .content .informationMovie h2 {
     font-size: 2rem;
@@ -1909,7 +1954,6 @@ footer .container .images .img img {
   height: 3rem;
   opacity: 0.5;
   object-fit: cover;
-  cursor: pointer;
   transition: 1s;
 }
 footer .container .images .img img:hover {

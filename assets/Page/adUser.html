@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <h4>Admin Settings</h4>
+        <h4>Users</h4>
         <i id="minMenu" class="fa-solid iconMenu fa-bars"></i>
     </header>
     <main>
@@ -24,16 +24,16 @@
         </div>
         <section id="commond">
             <div class="commondPanel">
-
                 <nav>
                     <ul>
-                        <li><a href="#"><i class="fa-solid fa-house-crack"></i>Dashboard</a></li>
+                        <li><a href="../../assets/Page/adminPage.html"><i
+                                    class="fa-solid fa-house-crack"></i>Dashboard</a></li>
                         <li><a href="../../assets/Page/adCategPage.html"><i
                                     class="fa-solid fa-layer-group"></i>Category</a></li>
                         <li><a href="../../assets/Page/adTrendPage.html"><i
                                     class="fa-solid fa-chart-simple"></i>Trending</a></li>
                         <li><a href="../../assets/Page/adMovPage.html"><i class="fa-solid fa-film"></i>Movies</a></li>
-                        <li><a href="../../assets/Page/adUser.html"><i class="fa-solid fa-user-group"></i>Users</a></li>
+                        <li><a href="#"><i class="fa-solid fa-user-group"></i>Users</a></li>
                     </ul>
                 </nav>
                 <div class="logout">
@@ -42,9 +42,21 @@
             </div>
             <div id="display">
                 <div class="adminText">
-                    <h4>Admin Settings</h4>
+                    <h4>Users</h4>
                 </div>
                 <div id="content">
+                    <h2 class="my-4">Create Users</h2>
+                    <form id="getUsers" action="#">
+                        <label for="newName">Name : </label>
+                        <input required placeholder="Name" id="newName" type="text">
+                        <label for="newEmail">Email :</label>
+                        <input required placeholder="Email " id="newEmail" type="email">
+                        <label for="newPass">Password :</label>
+                        <input required placeholder="Password" id="newPass" type="text">
+                        <label for="newImage">Image:</label>
+                        <input required placeholder="image" id="newImage" type="text">
+                        <button type="submit">Create</button>
+                    </form>
                     <form id="srcUser" action="#">
                         <input id="inp" required placeholder="Please enter user name" type="text">
                         <button>Search</button>

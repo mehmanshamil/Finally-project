@@ -34,40 +34,48 @@ async function findMovie(e) {
     }
 }
 function display(data) {
-    data.forEach((item) => {
+    if (data.length === 0) {
         let tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${item.id}</td>
-            <td> 
-                <div class="img">
-                    <img src="${item.image}" alt="${item.userName}">
-                </div>
-            </td>
-            <td>${item.category}</td>
-            <td>${item.title}</td>
-            <td>${item.price} $</td>
-            <td>
-                <div class="trendBtn"><button class="handleBtn" onclick="trendOn(${item.id}, this)" ><i class="fa-regular fa-thumbs-up fa-rotate-180"></i></button></div>
-            </td>
-        `;
-        if (item.trending) {
-            let button = tr.querySelector('.handleBtn');
-            let icon = button.querySelector('i');
-            icon.classList.remove('fa-rotate-180');
-            button.style.backgroundColor = 'green';
-            icon.classList.add('activeTrend');
-        }
-
+        let td = document.createElement("td");
+        td.setAttribute("colspan", "6");
+        td.textContent = "Data not available";
+        tr.appendChild(td);
         tbody.appendChild(tr);
-    });
+    } else {
+        data.forEach((item) => {
+            let tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td data-cell="ID">${item.id}</td>
+                <td data-cell="Image"> 
+                    <div class="img">
+                        <img src="${item.image}" alt="${item.userName}">
+                    </div>
+                </td>
+                <td data-cell="Category">${item.category}</td>
+                <td data-cell="Title">${item.title}</td>
+                <td data-cell="Price">${item.price} $</td>
+                <td data-cell="Option">
+                    <div class="trendBtn"><button class="handleBtn" onclick="trendOn(${item.id}, this)" ><i class="fa-regular fa-thumbs-up fa-rotate-180"></i></button></div>
+                </td>
+            `;
+            if (item.trending) {
+                let button = tr.querySelector('.handleBtn');
+                let icon = button.querySelector('i');
+                icon.classList.remove('fa-rotate-180');
+                button.style.backgroundColor = 'green';
+                icon.classList.add('activeTrend');
+            }
+            tbody.appendChild(tr);
+        });
+    }
 }
 
 
-// trendOn
-let toggle = true;
 
+// trendOn
 function trendOn(id, button) {
     let icon = button.querySelector('i');
+    let toggle = button.getAttribute('data-toggle') === 'true'; 
 
     if (toggle) {
         icon.classList.remove('fa-rotate-180');
@@ -79,14 +87,15 @@ function trendOn(id, button) {
         icon.parentElement.style.backgroundColor = 'red';
         icon.parentElement.style.color = 'white';
     }
-    toggle = !toggle;
+    
     let data = {
         trending: toggle,
     };
-    console.log(data);
+
     axios.put(`https://65b7689c46324d531d548041.mockapi.io/products/${id}`, data)
-    
+    button.setAttribute('data-toggle', !toggle);
 }
+
 
 
 function saveNewInfo(id) {

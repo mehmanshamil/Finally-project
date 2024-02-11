@@ -10,7 +10,6 @@ body {
     background-color: black;
     color: #fff;
     position: relative;
-
     #movieAnime {
         position: absolute;
         z-index: 999;
@@ -178,10 +177,26 @@ body {
     .container {
         position: relative;
 
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
         img {
             width: 100%;
             object-fit: cover;
             height: 45rem;
+        }
+
+        .fa-plus,
+        .fa-thumbs-up {
+            cursor: pointer;
         }
 
         .content {
@@ -192,6 +207,7 @@ body {
             align-items: center;
             width: 70%;
             height: 100%;
+            z-index: 2;
 
             .informationMovie {
                 width: 80%;
@@ -215,14 +231,33 @@ body {
 
                     .shareMovie {
                         position: absolute;
-                        top: -3.9rem;
+                        top: -9.5rem;
                         display: none;
                         flex-direction: column;
                         gap: 10px;
+                        animation: shareLinkAnime .5s forwards;
                         background-color: #f6be00;
                         width: 2rem;
+                        left: -.5rem;
                         align-items: center;
+                        border-radius: 5px;
                         padding: 10px;
+                        transition: 1s;
+
+                        &:hover {
+                            background-color: #000;
+                        }
+
+                        a {
+                            i {
+                                color: #fff;
+                                transition: 1s;
+
+                                &:hover {
+                                    color: #f6be00;
+                                }
+                            }
+                        }
 
                     }
                 }
@@ -340,11 +375,26 @@ body {
     }
 }
 
+@keyframes shareLinkAnime {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(7px);
+        opacity: 1;
+    }
+}
+
 @media only screen and (max-width: 767px) {
     #trending .container .head p {
         text-align: center;
     }
-
+    .description{
+        overflow: hidden;
+        height: 23rem;
+    }
     #moviePlayer #payment {
         left: 15%;
         width: 70%;
@@ -352,7 +402,8 @@ body {
     }
 
     #moviePlayer #popup-container {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
     }
 
     #moviePlayer .container .content .informationMovie h2 {

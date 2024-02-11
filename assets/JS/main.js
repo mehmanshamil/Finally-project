@@ -203,6 +203,17 @@ function saveChanges(id) {
             console.log(image);
         })
 }
+let headerLogo = document.querySelector(".logo img");
+headerLogo.addEventListener("click",getHome);
+
+function getHome(){
+    let userid = new URLSearchParams(window.location.search).get('userId');
+    if (userid) {
+        window.location.href = `../../index.html?userId=${userid}`;
+    } else {
+        window.location.href = "/"
+    }
+}
 
 document.getElementById("menuList").addEventListener("click", function (event) {
     event.preventDefault();
