@@ -575,6 +575,19 @@ header .iconMenu:hover {
   }
 }
 @media only screen and (max-width: 767px) {
+  .informationMovie {
+    width: 95%;
+  }
+  .informationMovie .contentForm .formBox #imgDetailMovie {
+    width: 150px;
+    height: 100px;
+  }
+  .informationMovie .contentForm .formBox button {
+    width: 8.5rem;
+  }
+  #detailInformation .information {
+    width: 85%;
+  }
   #commond #display #content #srcMovie {
     width: 80%;
   }
@@ -644,6 +657,9 @@ header .iconMenu:hover {
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #detailInformation .information {
+    width: 60%;
+  }
   #commond #display #content #srcUser {
     width: 65%;
   }

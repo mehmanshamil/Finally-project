@@ -887,7 +887,7 @@ body {
     z-index: 9999;
   }
   #moviePlayer #popup-container {
-    width: 90%;
+    width: 87%;
     margin: 0 auto;
   }
   #moviePlayer .container .content .informationMovie h2 {
@@ -958,11 +958,15 @@ body {
   background-color: #f6be00;
   color: black;
   font-weight: 600;
+  padding: 5px 15px;
   border: 1px solid #f6be00;
 }
 #srcMovieSec .container .filterSec button:hover {
   background-color: black;
   color: #f6be00;
+}
+#srcMovieSec .container .filterSec button svg {
+  width: 2rem;
 }
 #srcMovieSec .container .filterSec .content {
   align-self: flex-start;
@@ -1799,6 +1803,7 @@ swiper-container {
 #movies .container #moviesProducts {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 #movies .container #moviesProducts .moiveProBox {
   width: 324px;
@@ -1973,6 +1978,11 @@ footer p {
 
 #burgerIcon {
   display: none;
+}
+
+#videoPlayFragman {
+  position: absolute;
+  left: 0;
 }
 
 @keyframes animePlay {

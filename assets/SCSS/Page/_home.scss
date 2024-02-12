@@ -632,6 +632,7 @@ swiper-container {
         #moviesProducts {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
 
             // padding: 25px 0;
             .moiveProBox {
@@ -854,7 +855,10 @@ footer {
 #burgerIcon {
     display: none;
 }
-
+#videoPlayFragman{
+position: absolute;
+left: 0;
+}
 
 @keyframes animePlay {
     from {

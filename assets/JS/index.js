@@ -154,3 +154,31 @@ function getSrc(e) {
         window.location.href = `./assets/Page/searchMovie.html`
     }
 }
+const playBtn = document.querySelector('.playBtn');
+const addBtn = document.querySelector('.addBtn');
+const videoPlayFragman = document.querySelector('#videoPlayFragman');
+
+playBtn.addEventListener('click', getPlayFragman);
+
+// function getPlayFragman() {
+//     const youtubeLink = "https://www.youtube.com/watch?v=Z172SBuDbVc"
+
+//     const iframe = document.createElement('iframe');
+
+//     iframe.width = "560";
+//     iframe.height = "315";
+
+//     iframe.src = youtubeLink.replace("watch?v=", "embed/");
+//     iframe.allowFullscreen = true;
+//     videoPlayFragman.innerHTML = '';
+//     videoPlayFragman.appendChild(iframe);
+// }
+addBtn.addEventListener('click', function () {
+    let userid = new URLSearchParams(window.location.search).get('userId');
+    if (userid) {
+        window.location.href = `./assets/Page/addList.html?userId=${userid}`
+    } else {
+        window.location.href = `./assets/Page/addList.html`
+    }
+
+});

@@ -67,8 +67,14 @@ function wishlistGet() {
 wishlistGet()
 
 // get Movie Product
-function getMovie(id) {
-    window.location.href = `../../assets/Page/detaillMovie.html?id=${id}`;
+function getMovie(movieId) {
+    console.log(movieId);
+    let id = new URLSearchParams(window.location.search).get('userId');
+    if(id){
+        window.location.href = `../../assets/Page/detaillMovie.html?userId=${id}&movieId=${movieId}`;
+    }else{
+        window.location.href = `../../assets/Page/detaillMovie.html?movieId=${movieId}`;
+    }
 }
 
 function removeWishFunc(index) {
@@ -177,19 +183,18 @@ async function getMySettings(id) {
     let settAcc = document.getElementById("settAcc");
     settAcc.style.display = "flex";
 }
-
 function saveChanges(id) {
     let userName = document.getElementById("newName");
-    let image = document.getElementById("newImage");
+    let imageInput = document.getElementById("newImage"); 
     let newsurname = document.getElementById("newsurname");
     let newemail = document.getElementById("newemail");
     let newPass = document.getElementById("newPass");
     let photoDefault = "https://www.shutterstock.com/image-vector/default-profile-picture-avatar-photo-600nw-1681253560.jpg"
-    image.value = image.value === "" ? photoDefault : image.value;
+    imageInput.value = imageInput.value === "" ? photoDefault : imageInput.value;
 
     let data = {
         userName: userName.value,
-        image: image.value,
+        image: imageInput.value,
         userSurname: newsurname.value,
         email: newemail.value,
         passWord: newPass.value
@@ -198,11 +203,12 @@ function saveChanges(id) {
         .then(() => {
             let id = new URLSearchParams(window.location.search).get('userId');
             getUserName(id);
-            // getMySettings(id);
+            let imageElement = document.querySelector(".image img"); 
+            imageElement.src = imageInput.value; 
             closedSetting();
-            console.log(image);
         })
 }
+
 let headerLogo = document.querySelector(".logo img");
 headerLogo.addEventListener("click",getHome);
 
