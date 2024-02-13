@@ -156,29 +156,88 @@ function getSrc(e) {
 }
 const playBtn = document.querySelector('.playBtn');
 const addBtn = document.querySelector('.addBtn');
+const play = document.querySelector('.play i');
 const videoPlayFragman = document.querySelector('#videoPlayFragman');
+const fragmanDescription = document.getElementById('fragmanDescription');
+const movieName = document.getElementById('movieName');
 
-playBtn.addEventListener('click', getPlayFragman);
+playBtn.addEventListener('click', getMoviePlay);
+play.addEventListener('click', getPlayFragman);
 
-// function getPlayFragman() {
-//     const youtubeLink = "https://www.youtube.com/watch?v=Z172SBuDbVc"
+function extractVideoIdFromUrl(url) {
+    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))([^"&?\/\s]{11})/);
+    return match && match[1] ? match[1] : null;
+}
 
-//     const iframe = document.createElement('iframe');
+async function getMoviePlay() {
+    try {
+        const response = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/products`);
+        const videos = response.data;
+        const db = videos.sort((a, b) => b.id - a.id);
+        const movieid = db[0].id;
+        let userid = new URLSearchParams(window.location.search).get('userId');
+        if (userid) {
+            window.location.href = `../../assets/Page/detaillMovie.html?userId=${userid}&movieId=${movieid}`
+        } else {
+            window.location.href = `../../assets/Page/detaillMovie.html?movieId=${movieid}`
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-//     iframe.width = "560";
-//     iframe.height = "315";
+async function getMovieDetails() {
+    try {
+        const response = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/products`);
+        const videos = response.data;
+        const db = videos.sort((a, b) => b.id - a.id);
+        const videoData = db[0];
+        fragmanDescription.innerHTML = `${videoData.description}`;
+        movieName.innerHTML = `${videoData.title}`;
+    } catch (error) {
+        console.error(error);
+    }
+}
 
-//     iframe.src = youtubeLink.replace("watch?v=", "embed/");
-//     iframe.allowFullscreen = true;
-//     videoPlayFragman.innerHTML = '';
-//     videoPlayFragman.appendChild(iframe);
-// }
+getMovieDetails();
+async function getPlayFragman() {
+    videoPlayFragman.style.display = "flex";
+    try {
+        const response = await axios.get(`https://65b7689c46324d531d548041.mockapi.io/products`);
+        const videos = response.data;
+        const db = videos.sort((a, b) => b.id - a.id);
+        const videoData = db[0];
+        if (videoData && videoData.fragman) {
+            const fragman = extractVideoIdFromUrl(videoData.fragman);
+            console.log(fragman);
+            if (fragman) {
+                videoPlayFragman.innerHTML = `
+                   <div class="containerFragman">
+                       <i id="closed" onclick="closed()" class="fa-solid fa-x"></i>
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/${fragman}" frameborder="0" allowfullscreen></iframe>
+                   </div>
+                `;
+            } else {
+                console.error("error.");
+            }
+        } else {
+            console.error("error.");
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function closed() {
+    videoPlayFragman.style.display = "none"
+
+}
 addBtn.addEventListener('click', function () {
     let userid = new URLSearchParams(window.location.search).get('userId');
     if (userid) {
-        window.location.href = `./assets/Page/addList.html?userId=${userid}`
+        window.location.href = `../../assets/Page/addList.html?userId=${userid}`
     } else {
-        window.location.href = `./assets/Page/addList.html`
+        window.location.href = `../../assets/Page/addList.html`
     }
 
 });

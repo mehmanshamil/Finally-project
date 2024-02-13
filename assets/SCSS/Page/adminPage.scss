@@ -159,9 +159,15 @@ header {
             display: flex;
         }
 
+        li {
+            position: relative;
+        }
+
         &:hover {
             li {
                 width: 10rem;
+                position: relative;
+
 
                 &:hover {
                     a {
@@ -177,6 +183,7 @@ header {
 
         nav {
             margin-top: 1.5rem;
+            // margin: 1rem;
 
             ul {
                 margin: 0;
@@ -640,10 +647,12 @@ header {
         }
     }
 }
-.trendBtn{
+
+.trendBtn {
     display: flex;
     justify-content: center;
 }
+
 @keyframes menuAnimation {
     from {
         transform: translateX(-200px);
@@ -658,52 +667,66 @@ header {
     .informationMovie {
         width: 95%;
     }
-    .informationMovie .contentForm .formBox #imgDetailMovie{
+
+    .informationMovie .contentForm .formBox #imgDetailMovie {
         width: 150px;
         height: 100px;
     }
-    .informationMovie .contentForm .formBox button{
+
+    .informationMovie .contentForm .formBox button {
         width: 8.5rem;
     }
-    #detailInformation .information{
+
+    #detailInformation .information {
         width: 85%;
     }
-    #commond #display #content #srcMovie{
+
+    #commond #display #content #srcMovie {
         width: 80%;
     }
+
     #commond #display #content table {
-    width: 70%;
+        width: 70%;
     }
-    #getUsers{
+
+    #getUsers {
         width: 80%;
     }
-    label{
+
+    label {
         font-size: 15px;
     }
-    .duration{
+
+    .duration {
         font-size: 13px;
     }
+
     #createMovie {
         width: 90%;
         margin: 1rem 0;
     }
-    #commond #display #content .option{
+
+    #commond #display #content .option {
         border: 1px solid black;
         justify-content: center;
     }
+
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 5px;
-        h4{
+
+        h4 {
             color: #fff;
         }
     }
+
     #getCategory {
-    width: 80%;
+        width: 80%;
     }
-    #commond #display .adminText h4{
+
+    #commond #display .adminText h4 {
         display: none;
     }
 
@@ -721,19 +744,22 @@ header {
     #commond #display #content #srcUser {
         width: 85%;
     }
-    #commond #display #content table .optionBtn{
+
+    #commond #display #content table .optionBtn {
         border: 1px solid black;
     }
 
     //   table
     td {
         display: block;
-        &::before{
+
+        &::before {
             content: attr(data-cell) ": ";
             font-weight: 700;
             text-transform: capitalize;
         }
     }
+
     // #commond #display #content th, #commond #display #content td{
     //     &::before{
     //         content: attr(data-cell) ": ";
@@ -752,23 +778,30 @@ header {
     }
 
 }
+
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    #detailInformation .information{
+    #detailInformation .information {
         width: 60%;
     }
+
     #commond #display #content #srcUser {
         width: 65%;
     }
-    #commond #display #content{
+
+    #commond #display #content {
         padding: 10px;
     }
-    #commond #display #content th, #commond #display #content td{
+
+    #commond #display #content th,
+    #commond #display #content td {
         padding: 2px;
     }
-    #commond #display #content table{
+
+    #commond #display #content table {
         width: 89%;
     }
-    #commond #display #content table{
+
+    #commond #display #content table {
         align-self: flex-end;
     }
 

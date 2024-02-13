@@ -173,7 +173,7 @@ function extractVideoIdFromUrl(url) {
 }
 
 function playMovie(url) {
-    console.log(url);
+    // console.log(url);
     const videoId = extractVideoIdFromUrl(url);
     openVideo(videoId);
 }

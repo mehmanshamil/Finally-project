@@ -1292,6 +1292,48 @@ body {
   display: flex;
   align-items: center;
 }
+#hero #videoPlayFragman {
+  position: absolute;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 22%;
+  height: 30rem;
+  z-index: 9999;
+}
+#hero #videoPlayFragman .containerFragman {
+  width: 50%;
+  position: relative;
+  height: 100%;
+}
+#hero #videoPlayFragman .containerFragman iframe {
+  width: 100%;
+  height: 100%;
+}
+#hero #videoPlayFragman .containerFragman #closed {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  right: 0;
+  right: -20px;
+  top: -20px;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f6be00;
+  border: 2px solid #f6be00;
+  color: #000;
+  cursor: pointer;
+  transition: 1s;
+}
+#hero #videoPlayFragman .containerFragman #closed:hover {
+  background-color: #000;
+  color: #f6be00;
+  border: 2px solid #f6be00;
+}
 #hero::before {
   content: "";
   height: 49.4rem;
@@ -1996,6 +2038,12 @@ footer p {
   }
 }
 @media only screen and (max-width: 767px) {
+  #hero #videoPlayFragman {
+    height: 20rem;
+  }
+  #hero #videoPlayFragman .containerFragman {
+    width: 75%;
+  }
   footer .container .content .share a i {
     width: 2.5rem;
     height: 2.5rem;
