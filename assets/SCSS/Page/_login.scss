@@ -14,13 +14,13 @@
         #loginGet {
             display: flex;
             flex-direction: column;
-            // width: 40%;
             width: 518px;
             gap: 15px;
             box-shadow: 0 2px 20px 0.2px #f6be00;
             padding: 20px;
             border-radius: 10px;
-            .alertFalse{
+
+            .alertFalse {
                 color: #fff;
                 text-align: center;
                 padding: 5px;
@@ -28,13 +28,30 @@
                 border-radius: 10px;
                 font-weight: 500;
             }
-            .paswordContent{
+
+            .checkk {
+                position: absolute;
+                top: 3px;
+                background-color: green;
+                border-radius: 50%;
+                width: 1.25rem;
+                height: 1.25rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                left: -3px;
+
+            }
+
+            .paswordContent {
                 width: 100%;
                 position: relative;
-                input{
+
+                input {
                     width: 100%;
                 }
-                #seenPass{
+
+                #seenPass {
                     position: absolute;
                     right: 1rem;
                     z-index: 9;
@@ -44,14 +61,18 @@
                     font-size: 1.2rem;
                 }
             }
+
             .remmeber {
                 display: flex;
                 gap: 10px;
-                #rememberMe{
+                position: relative;
+
+                #rememberMe {
                     // width: 2rem;
                     // height: 2rem;
                     border-radius: 50% !important;
                 }
+
                 input,
                 label {
                     cursor: pointer;
@@ -73,30 +94,35 @@
                 border-radius: 10px;
                 text-transform: uppercase;
                 font-weight: 600;
+
                 &:hover {
                     background-color: #f6be00;
                     color: black;
                 }
             }
-            a{
+
+            a {
                 color: #f6be00;
                 text-align: center;
                 margin: 1rem 0;
                 text-decoration: underline !important;
-                &:hover{
+
+                &:hover {
                     text-decoration: none !important;
                 }
             }
         }
     }
 }
+
 @media only screen and (max-width: 767px) {
-    header .container .add-list .wishHead .wish{
+    header .container .add-list .wishHead .wish {
         width: 18rem;
         left: -6rem;
         top: 2.5rem;
     }
-    #loginSec .container #loginGet{
+
+    #loginSec .container #loginGet {
         width: 100%;
     }
 }

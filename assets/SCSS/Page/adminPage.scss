@@ -664,6 +664,10 @@ header {
 }
 
 @media only screen and (max-width: 767px) {
+    #commond .commondPanel .logout {
+        width: 10rem;
+    }
+
     .informationMovie {
         width: 95%;
     }

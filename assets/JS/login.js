@@ -40,3 +40,39 @@ login.addEventListener("submit", async (e) => {
 function userLogin(id) {
     window.location.href = `../../index.html?userId=${id}`;
 }
+// Remember Me Functionality
+let rememberMeCheckbox = document.getElementById("rememberMe");
+
+let savedUsername = localStorage.getItem("rememberedUsername");
+if (savedUsername) {
+    username.value = savedUsername;
+    rememberMeCheckbox.checked = true;
+}
+
+rememberMeCheckbox.addEventListener("change", function () {
+    if (this.checked) {
+        localStorage.setItem("rememberedUsername", username.value);
+    } else {
+        localStorage.removeItem("rememberedUsername");
+    }
+});
+let rememberMeCheck = document.querySelector(".remmeber");
+rememberMeCheck.addEventListener("click", checkForm)
+let checkToggle = true;
+console.log(rememberMeCheck);
+function checkForm() {
+    console.log("adsas");
+    if (checkToggle) {
+        rememberMeCheck.innerHTML = `
+        <i class="fa-regular checkk fa-circle-check"></i>
+        <input id="rememberMe" type="checkbox">
+                        <label for="rememberMe">Remember Me </label>
+        `
+    } else {
+        rememberMeCheck.innerHTML = `
+        <input id="rememberMe" type="checkbox">
+                        <label for="rememberMe">Remember Me </label>
+        `
+    }
+    checkToggle = !checkToggle
+}

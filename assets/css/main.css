@@ -1140,6 +1140,18 @@ body {
   border-radius: 10px;
   font-weight: 500;
 }
+#loginSec .container #loginGet .checkk {
+  position: absolute;
+  top: 3px;
+  background-color: green;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -3px;
+}
 #loginSec .container #loginGet .paswordContent {
   width: 100%;
   position: relative;
@@ -1159,6 +1171,7 @@ body {
 #loginSec .container #loginGet .remmeber {
   display: flex;
   gap: 10px;
+  position: relative;
 }
 #loginSec .container #loginGet .remmeber #rememberMe {
   border-radius: 50% !important;
