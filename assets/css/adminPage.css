@@ -329,6 +329,10 @@ header .iconMenu:hover {
   width: 6rem;
   height: 3rem;
 }
+#commond #display #content th {
+  background-color: black;
+  color: #fff;
+}
 #commond #display #content th,
 #commond #display #content td {
   padding: 10px;

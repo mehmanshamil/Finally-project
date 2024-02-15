@@ -75,7 +75,7 @@ function display(data) {
 // trendOn
 function trendOn(id, button) {
     let icon = button.querySelector('i');
-    let toggle = button.getAttribute('data-toggle') === 'true'; 
+    let toggle = button.getAttribute('data-toggle') === 'true';
 
     if (toggle) {
         icon.classList.remove('fa-rotate-180');
@@ -87,7 +87,7 @@ function trendOn(id, button) {
         icon.parentElement.style.backgroundColor = 'red';
         icon.parentElement.style.color = 'white';
     }
-    
+
     let data = {
         trending: toggle,
     };

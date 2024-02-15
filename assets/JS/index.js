@@ -228,10 +228,16 @@ async function getPlayFragman() {
     }
 }
 
-function closed() {
-    videoPlayFragman.style.display = "none"
 
+function closed() {
+    videoPlayFragman.style.display = "none";
+    const iframe = videoPlayFragman.querySelector('iframe');
+    if (iframe) {
+        const iframeSrc = iframe.src;
+        iframe.src = iframeSrc;
+    }
 }
+
 addBtn.addEventListener('click', function () {
     let userid = new URLSearchParams(window.location.search).get('userId');
     if (userid) {

@@ -57,21 +57,21 @@ rememberMeCheckbox.addEventListener("change", function () {
     }
 });
 let rememberMeCheck = document.querySelector(".remmeber");
-rememberMeCheck.addEventListener("click", checkForm)
+// toogle
+rememberMeCheck.addEventListener("click", checkForm);
+
 let checkToggle = true;
-console.log(rememberMeCheck);
 function checkForm() {
-    console.log("adsas");
     if (checkToggle) {
         rememberMeCheck.innerHTML = `
         <i class="fa-regular checkk fa-circle-check"></i>
         <input id="rememberMe" type="checkbox">
-                        <label for="rememberMe">Remember Me </label>
+         <label for="rememberMe">Remember Me </label>
         `
     } else {
         rememberMeCheck.innerHTML = `
         <input id="rememberMe" type="checkbox">
-                        <label for="rememberMe">Remember Me </label>
+          <label for="rememberMe">Remember Me </label>
         `
     }
     checkToggle = !checkToggle

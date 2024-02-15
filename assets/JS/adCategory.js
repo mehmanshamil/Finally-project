@@ -2,7 +2,7 @@ let displayData = document.getElementById("display");
 const tbody = document.getElementById("tbody");
 
 async function getProducts() {
-    tbody.innerHTML=''
+    tbody.innerHTML = ''
     await axios.get("https://6589aaa6324d4171525951a6.mockapi.io/user/MovieCategory")
         .then((res) => {
             db = res.data;
@@ -84,9 +84,9 @@ function infoDetailClose() {
 
 // create Category
 let getCategory = document.getElementById("getCategory");
-getCategory.addEventListener("submit",categoryCreate)
+getCategory.addEventListener("submit", categoryCreate)
 
-function categoryCreate(e){
+function categoryCreate(e) {
     e.preventDefault();
     let newpostContent = document.getElementById("newpostContent");
     let newIcoNs = document.getElementById("newIcoNs");

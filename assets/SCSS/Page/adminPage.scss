@@ -357,11 +357,6 @@ header {
                     color: #fff;
                     transition: 1s;
                     border: 1px solid green;
-
-                    &:hover {
-                        // color: green;
-                        // background-color: #fff;
-                    }
                 }
             }
 
@@ -375,6 +370,11 @@ header {
                     width: 6rem;
                     height: 3rem;
                 }
+            }
+
+            th {
+                background-color: black;
+                color: #fff;
             }
 
             th,
@@ -763,14 +763,6 @@ header {
             text-transform: capitalize;
         }
     }
-
-    // #commond #display #content th, #commond #display #content td{
-    //     &::before{
-    //         content: attr(data-cell) ": ";
-    //         font-weight: 700;
-    //         text-transform: capitalize;
-    //     } 
-    // }
 
 
     th {

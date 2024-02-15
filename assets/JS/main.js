@@ -70,9 +70,9 @@ wishlistGet()
 function getMovie(movieId) {
     console.log(movieId);
     let id = new URLSearchParams(window.location.search).get('userId');
-    if(id){
+    if (id) {
         window.location.href = `../../assets/Page/detaillMovie.html?userId=${id}&movieId=${movieId}`;
-    }else{
+    } else {
         window.location.href = `../../assets/Page/detaillMovie.html?movieId=${movieId}`;
     }
 }
@@ -185,7 +185,7 @@ async function getMySettings(id) {
 }
 function saveChanges(id) {
     let userName = document.getElementById("newName");
-    let imageInput = document.getElementById("newImage"); 
+    let imageInput = document.getElementById("newImage");
     let newsurname = document.getElementById("newsurname");
     let newemail = document.getElementById("newemail");
     let newPass = document.getElementById("newPass");
@@ -203,16 +203,16 @@ function saveChanges(id) {
         .then(() => {
             let id = new URLSearchParams(window.location.search).get('userId');
             getUserName(id);
-            let imageElement = document.querySelector(".image img"); 
-            imageElement.src = imageInput.value; 
+            let imageElement = document.querySelector(".image img");
+            imageElement.src = imageInput.value;
             closedSetting();
         })
 }
 
 let headerLogo = document.querySelector(".logo img");
-headerLogo.addEventListener("click",getHome);
+headerLogo.addEventListener("click", getHome);
 
-function getHome(){
+function getHome() {
     let userid = new URLSearchParams(window.location.search).get('userId');
     if (userid) {
         window.location.href = `../../index.html?userId=${userid}`;
@@ -226,20 +226,20 @@ document.getElementById("menuList").addEventListener("click", function (event) {
 
     let userid = new URLSearchParams(window.location.search).get('userId');
 
-    if (event.target.id === "homePage" || event.target.parentNode.id === "homePage" ) {
+    if (event.target.id === "homePage" || event.target.parentNode.id === "homePage") {
         if (userid) {
             window.location.href = `../../index.html?userId=${userid}`;
         } else {
             window.location.href = "/"
         }
-    }else if (event.target.id === "movieGet" || event.target.parentNode.id === "movieGet") {
+    } else if (event.target.id === "movieGet" || event.target.parentNode.id === "movieGet") {
         if (userid) {
             window.location.href = `../../index.html?userId=${userid}/#movies`;
         } else {
-            window.location.href =`/#movies`;
+            window.location.href = `/#movies`;
         }
-    } 
-     else if (event.target.id === "addList" || event.target.parentNode.id === "addList") {
+    }
+    else if (event.target.id === "addList" || event.target.parentNode.id === "addList") {
         if (userid) {
             window.location.href = `../../assets/Page/addList.html?userId=${userid}`;
         } else {
@@ -260,13 +260,9 @@ function menuBurgerGet() {
     if (handle) {
         addlist.style.display = "flex"
         nav.style.display = "flex"
-        // addlist.style.animation="menuAnime 2s ease forwards"
-        // nav.style.animation="menuAnime 2s ease forwards"
     } else {
         addlist.style.display = "none"
         nav.style.display = "none"
-        // addlist.style.animation="menuAnimeHide 2s ease forwards"
-        // nav.style.animation="menuAnimeHide 2s ease forwards"
     }
     handle = !handle
 }
